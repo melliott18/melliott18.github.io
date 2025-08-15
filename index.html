@@ -1,66 +1,835 @@
 <!DOCTYPE html>
-<html>
-<h1>Mitchell Elliott</h1>
-<img src="assets/images/picture.jpeg" alt="Picture" height="200" width="200" style="float: left; margin-right: 15px;">
-<h2>About me:</h2>
-I am a recent master's computer science graduate from UC Santa Cruz. My research focuses on the energy efficiency of storage systems. I am also a former six-time teaching assistant for an upper-division computer system design course with experience in software engineering, DevOps, cloud computing, and business data analytics. I am currently seeking a full-time position.
-<br>
-<br>
-LinkedIn: <a href="https://www.linkedin.com/in/mitchellelliott18/">https://www.linkedin.com/in/mitchellelliott18/</a>
-<br>
-GitHub: <a href="https://github.com/melliott18">https://github.com/melliott18</a>
-<br>
-<a href="Mitchell_Elliott_Resume.pdf">Resume</a>
-<br>
-<a href="Mitchell_Elliott_CV.pdf">CV</a>
-<br>
-<br>
-<br>
-<h2>Projects:</h2>
-<h3>Jakes’s Hockey Pool</h3>
-Jake’s Hockey Pool is a private, hockey-themed fantasy sports website
-<br>
-Website: <a href="https://github.com/melliott18/jakes-hockey-pool">https://github.com/melliott18/jakes-hockey-pool</a>
-<ul>
-<li>Wrote a live data feed interface and built a map to the undocumented NHL REST API</li>
-<li>Contributed to the data structure and schema designs of the pool and called for architecture review and design specs</li>
-<li>Employed a modular approach to the code design to simplify and speed up development and testing</li>
-<li>Wrote the code in Python and used MySQL to manage the database</li>
-</ul>
-<h3>Multithreaded RPC Server</h3>
-<ul>
-<li>Implemented a multithreaded remote procedure call (RPC) server to perform arithmetic operations and file services in C</li>
-<li>Client requests and server responses were sent in network byte order using a user-defined protocol</li>
-<li>Server was scalable and supported recursive name resolution for variables, persistent key-value pairs, and fault tolerance</li>
-</ul>
-<h3>Deduplicating Key-Value Store </h3>
-<ul>
-<li>Designed and built a deduplicating key-value store file system for FreeBSD implemented as a userspace program in C</li>
-<li>File system mapped 160-bit keys to unique 4 KiB blocks stored in a mounted memory disk</li>
-<li>Memory disk was formatted with a superblock to store the file system metadata and inodes to contain the mappings to data blocks</li>
-</ul>
-<h3>In-Memory File System</h3>
-<ul>
-<li>Built a Unix-style in-memory filesystem with a tree structure hierarchy in C++</li>
-<li>Program was simulated in a terminal shell environment with support for commands such as cat, cd, ls, make, mkdir, pwd, and rm</li>
-<li>Shell commands modified an inode tree consisting of a root node and mappings to files and directories</li>
-</ul>
-<h3>Multithreaded Password Cracker</h3>
-<ul>
-<li>Created a truly parallel multithreaded password cracker in C++ that spanned across multiple servers on independent computers</li>
-<li>Utilized every CPU core available by assigning each thread a separate section of the password keyspace to crack</li>
-<li>Threads that cracked passwords would communicate to the other servers by multicasting over the network</li>
-</ul>
-<h2>Hobbies/Interests:</h2>
-<ul>
-<li>Hockey</li>
-<li>Exercising</li>
-<li>Biking</li>
-<li>Hiking</li>
-</ul>
-Feel free to contact me via email:
-<br>
-<a href="mailto:miclelli@ucsc.edu">miclelli@ucsc.edu</a>
-<br>
-<a href="mailto:mitch.elliott@pacbell.net">mitch.elliott@pacbell.net</a>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitchell Elliott - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        body.light-theme {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        body.dark-theme {
+            background-color: #181818;
+            color: #eee;
+        }
+        body.dark-theme section {
+            background: #181818;
+            color: #eee;
+            border-left: 10px solid #444;
+            border-right: 10px solid #444;
+            border-top: 10px solid #444;
+            border-bottom: 10px solid #444;
+        }
+        body.dark-theme header,
+        body.dark-theme .footer,
+        body.dark-theme .sidebar {
+            background: #004080;
+            color: #fff;
+        }
+        body.light-theme header,
+        body.light-theme .footer,
+        body.light-theme .sidebar {
+            background: #004080;
+            color: #fff;
+        }
+        body.dark-theme .sidebar a {
+            color: #ffcc00;
+        }
+        body.dark-theme .sidebar a:hover {
+            color: #fff;
+        }
+        body.light-theme .sidebar a {
+            color: #ffcc00;
+        }
+        body.light-theme .sidebar a:hover {
+            color: #fff;
+        }
+        header h1, header p, header a {
+            color: #ffcc00 !important;
+        }
+        .container {
+            margin: 0;
+            padding: 20px;
+            margin-left: 200px;
+            margin-right: 20px;
+            padding-top: 20px; /* match left/right padding */
+            padding-bottom: 20px; /* match left/right padding */
+        }
+        /* Remove extra margin above first section and below last section */
+        .container section:first-child {
+            margin-top: 0;
+        }
+        .container section:last-child {
+            margin-bottom: 0;
+        }
+        header {
+            background: #004080;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            position: absolute;
+            top: 20px;
+            right: 40px;
+        }
+        section {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 10px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 10px solid #ffcc00;
+            border-right: 10px solid #ffcc00;
+            border-top: 10px solid #ffcc00;
+            border-bottom: 10px solid #ffcc00;
+        }
+        body.dark-theme section {
+            background: #181818;
+            color: #eee;
+            border: 10px solid #ffcc00;
+        }
+        /* Sub-boxes: education-item and section-item (all sub-boxes) */
+        .education-item, .section-item {
+            border: 6px solid #004080;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            padding: 20px 20px;
+            background: #ededed;
+        }
+        body.light-theme .education-item, body.light-theme .section-item {
+            background: #ededed;
+            color: #222;
+            border: 6px solid #004080;
+        }
+        body.dark-theme .education-item, body.dark-theme .section-item {
+            background: #232323 !important;
+            color: #f8f8f8;
+            border: 6px solid #004080;
+        }
+        section h2 {
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #ccc;
+            padding-bottom: 8px;
+        }
+        section h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        ul li {
+            margin-top: 0;
+            margin-bottom: 0;
+            border-bottom: 3px solid #ccc;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        ul li:not(:last-child) {
+            margin-bottom: 0;
+            padding-bottom: 8px;
+        }
+        ul li:last-child {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0px !important;
+            padding-top: 0 !important;
+        }
+        .skills-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            margin: 8px 0 0 0;
+        }
+        .skills-inline span {
+            background: #fff;
+            color: #004080;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-size: 1em;
+            font-weight: 500;
+            border: 2.5px solid #b3c6ff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+            background-clip: padding-box;
+            display: inline-block;
+            text-align: center;
+        }
+        body.dark-theme .skills-inline span {
+            background: #232f4b;
+            color: #ffcc00;
+            border: 2.5px solid #004080;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.30);
+        }
+        .skills-inline span:hover {
+            background: #e0e7ff;
+            color: #002850;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        }
+        body.dark-theme .skills-inline span:hover {
+            background: #003366;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+        }
+        .footer {
+            text-align: center;
+            background: #004080;
+            color: #fff;
+            padding: 4px 10px;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+        .footer a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 180px;
+            background: #004080;
+            color: #fff;
+            padding-top: 30px;
+            padding-left: 0px;
+            z-index: 1000;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .sidebar ul li {
+            margin: 0 0 18px 0;
+            border: none;
+        }
+        .sidebar ul li:not(:last-child) {
+            margin-bottom: 0;
+        }
+        .sidebar ul li:last-child {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+        .sidebar a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+        .sidebar a:hover {
+            color: #fff;
+        }
+        .sidebar-link-box {
+            background: #003366;
+            border-radius: 8px;
+            padding: 10px 0 10px 0;
+            width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+            transition: background 0.2s;
+        }
+        .sidebar-link-box-link {
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 1.05em;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            transition: color 0.2s;
+        }
+        .sidebar-link-box-link:hover {
+            color: #fff;
+        }
+        body.dark-theme .sidebar-link-box {
+            background: #002850;
+        }
+        body.dark-theme .sidebar-link-box-link {
+            color: #ffcc00;
+        }
+        body.dark-theme .sidebar-link-box-link:hover {
+            color: #fff;
+        }
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .education-item {
+            color: #222;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            padding: 20px 20px;
+            border: 6px solid #004080;
+            background: #ededed;
+        }
+        body.light-theme .education-item {
+            background: #ededed;
+            color: #222;
+            border: 6px solid #004080;
+        }
+        body.dark-theme .education-item {
+            background: #232323 !important;
+            color: #f8f8f8;
+            border: 6px solid #004080;
+        }
+        /* Section item box formatting for Experience, Projects, Skills */
+        .section-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .section-item {
+            background: none;
+            color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            padding: 20px 20px;
+            border: 6px solid #004080;
+            background: #ededed;
+        }
+        body.light-theme .section-item {
+            background: #ededed;
+            color: #222;
+            border: 6px solid #004080;
+        }
+        body.dark-theme .section-item {
+            background: #232323 !important;
+            color: #f8f8f8;
+            border: 6px solid #004080;
+        }
+        .section-item p {
+            margin: 0 0 1em 0;
+            padding: 0;
+        }
+        .section-item p:last-child {
+            margin-bottom: 0;
+        }
+        .section-item ul {
+            margin: 8px 0 0 10px;
+            padding: 0 0 0 10px;
+            list-style: disc inside;
+        }
+        .section-item ul li {
+            border: none;
+            padding: 0 0 6px 0;
+            margin: 0;
+            color: inherit;
+            font-size: 1em;
+        }
+        .education-item ul li:last-child {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .education-item ul {
+            margin-bottom: 0 !important;
+        }
+        .section-item a {
+            color: #004080;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        body.dark-theme .section-item a {
+            color: #66aaff;
+        }
+        body.dark-theme .section-item a:hover {
+            color: #3388dd;
+        }
+        .section-item a:hover {
+            color: #002850;
+        }
+        /* Mode button circle styling to match sidebar-link-box */
+        #theme-icon-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px solid #003366;
+            background: #003366;
+            color: #ffcc00;
+            font-size: 2em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: border 0.2s, background 0.2s, color 0.2s;
+            padding: 0;
+            line-height: 1;
+        }
+        body.dark-theme #theme-icon-btn {
+            background: #002850;
+            color: #ffcc00;
+            border: 3px solid #ffcc00;
+        }
+        #theme-icon-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px #b3c6ff;
+        }
+        @media (max-width: 800px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+                padding-top: 0;
+            }
+            .container {
+                margin-left: 0;
+                margin-right: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mitchell Elliott</h1>
+        <p>Software Engineer & Researcher</p>
+    </header>
+
+    <nav class="sidebar">
+        <div style="text-align:center; margin-bottom: 24px;">
+            <img src="assets/images/picture.jpeg" alt="Mitchell Elliott" style="width: 130px; height: 130px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 10px; margin-top: -10px;">
+            <div style="font-size: 1.25em; font-weight: bold; color: #ffcc00; margin-bottom: 0;">Mitchell Elliott</div>
+        </div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="margin-top: 32px; text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center;">
+            <div class="sidebar-link-box">
+                <a href="Mitchell_Elliott_Resume.pdf" target="_blank" class="sidebar-link-box-link">
+                    <span style="font-size:1.3em; vertical-align:middle; margin-right:6px;">📄</span> Resume
+                </a>
+            </div>
+            <div class="sidebar-link-box">
+                <a href="Mitchell_Elliott_CV.pdf" target="_blank" class="sidebar-link-box-link">
+                    <span style="font-size:1.3em; vertical-align:middle; margin-right:6px;">🗂️</span> CV
+                </a>
+            </div>
+            <div style="margin-top: 10px; width: 100%; display: flex; flex-direction: column; align-items: center; position:relative;">
+                <button id="theme-icon-btn">
+                    🌓
+                </button>
+                <div id="theme-dropdown" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:56px; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.12); min-width:80px; z-index:10;">
+                    <button class="theme-option" data-theme="system" style="width:100%; background:none; border:none; padding:8px 0; font-size:1.5em; cursor:pointer;">🌓</button>
+                    <button class="theme-option" data-theme="light" style="width:100%; background:none; border:none; padding:8px 0; font-size:1.5em; cursor:pointer;">☀️</button>
+                    <button class="theme-option" data-theme="dark" style="width:100%; background:none; border:none; padding:8px 0; font-size:1.5em; cursor:pointer;">🌙</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About</h2>
+            <div class="section-item">
+                <p>
+                    Hi, I'm Mitchell. I am a software engineer and researcher with a passion for building high‑performance, sustainable technology solutions.
+                    My expertise spans systems programming, storage architectures, cloud infrastructure, and sustainability‑driven design.
+                    I enjoy combining deep technical skills with a focus on efficiency, scalability, and environmental impact.
+                </p>
+                <p>
+                    I earned my M.S. in Computer Science from the University of California, Santa Cruz, where I worked with the Center for
+                    Research in Storage Systems (CRSS). My research explored hybrid storage architectures, life cycle assessment (LCA),
+                    and simulation‑based approaches to evaluating and optimizing data center design across cost, performance, and
+                    sustainability metrics.
+                </p>
+                <p>
+                    In addition to my research, I served as the Head Teaching Assistant for <strong>CSE 130: Principles of Computer System Design</strong> across six quarters, mentoring over 1,000 students.
+                    I led discussion sections, created assignments and quizzes, managed course infrastructure, and developed an automated
+                    CI/CD grading pipeline on GitLab to improve efficiency and consistency in evaluating programming assignments.
+                </p>
+                <p>
+                    Beyond academia, I’ve worked across full‑stack development, DevOps, and infrastructure automation. I’ve built CI/CD
+                    pipelines, Kubernetes monitoring solutions, and workflow integrations that improve operational reliability at scale.
+                    I approach every project with a collaborative mindset and a commitment to measurable outcomes—whether optimizing
+                    infrastructure for performance, designing cost‑effective storage systems, or integrating sustainability into
+                    engineering workflows.
+                </p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <strong>University of California, Santa Cruz</strong><br>
+                    <span class="degree">M.S. Computer Science</span> <span class="date">(Sept. 2022 – Dec. 2024)</span>
+                    <div class="coursework">
+                        <ul><li><strong>Coursework:</strong> A.I., Advanced Operating Systems, Database Systems, Distributed Systems, Archival Storage System Design, Cryptography, Computer Security, Computer Architecture, Algorithms, Programming Languages</li></ul>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <strong>University of California, Santa Cruz</strong><br>
+                    <span class="degree">B.S. Computer Science</span> <span class="date">(Sept. 2018 – June 2022)</span>
+                    <div class="coursework">
+                        <ul><li><strong>Coursework:</strong> A.I., Algorithms, Assembly Language, C Programming, Compiler Design, Computer Architecture, Computational Models, Computer Networks, Computer Security, Data Structures, Database Design, Distributed Systems, Embedded Operating Systems, Functional Programming, Network Programming, SQL, Web Applications</li></ul>
+                    </div>
+                    <div class="achievements">
+                        <ul><li><strong>Achievements:</strong> UCSC Dean’s List (Fall 2019, Winter 2020, Spring 2020)</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="section-list">
+                <div class="section-item">
+                    <strong>University of California, Santa Cruz (Center for Research in Systems and Storage)</strong><br>
+                    <em>Research and Development Engineer</em> • Santa Cruz, CA • <span>Dec. 2024 — Present</span>
+                    <ul>
+                        <li>Designing sustainability-focused hybrid storage architectures to reduce end-to-end carbon impact in data center lifecycles</li>
+                        <li>Applying life cycle assessment (LCA) to compare storage media by cost, energy consumption, and environmental footprint</li>
+                        <li>Developing simulation tools to model carbon emissions, performance impacts, and tradeoffs of storage system configurations</li>
+                        <li>Continuing development of <strong>CarbonStream</strong>, expanding features and datasets from my M.S. research project</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>University of California, Santa Cruz (Center for Research in Systems and Storage)</strong><br>
+                    <em>Graduate Student Researcher</em> • Santa Cruz, CA • <span>Jan. 2024 — Dec. 2024</span>
+                    <ul>
+                        <li>Created <strong>CarbonStream</strong>, an end-to-end total cost of carbon analyzer for data centers (M.S. Project)</li>
+                        <li>Conducted a comprehensive lifecycle analysis of storage technologies to evaluate their environmental impact</li>
+                        <li>Developed a decision-making framework integrating cost, performance, and sustainability metrics to optimize data storage</li>
+                        <li>Identified opportunities for hybrid storage architectures that improved energy efficiency by leveraging workload-specific strategies</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>University of California, Santa Cruz (Baskin School of Engineering)</strong><br>
+                    <em>Teaching Assistant</em> • Santa Cruz, CA • <span>Jan. 2023 — Dec. 2024</span>
+                    <ul>
+                        <li>6x Head Teaching Assistant for CSE 130: Principles of Computer System Design (W23, S23, F23, W24, S24, F24)</li>
+                        <li>Reviewed course material and assisted students with programming assignments and exam prep</li>
+                        <li>Conducted group discussion sections, created assignments and quizzes, proctored exams, and managed course infrastructure</li>
+                        <li>Created and maintained an automated CI/CD pipeline for grading programming assignments on GitLab</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>Perfectly Snug</strong><br>
+                    <em>Software Engineer Intern</em> • Remote • <span>July 2023 — Sept. 2023</span>
+                    <ul>
+                        <li>Developed a custom MRP system with BOM management using Python, MySQL, Node.js, and React</li>
+                        <li>Automated manufacturing process management and part tracking</li>
+                        <li>Developed dashboards and reports using Shopify API data to optimize daily build plans</li>
+                        <li>Integrated product testing software into a mobile app to streamline the build procedure</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>ParkourSC, Inc.</strong><br>
+                    <em>DevOps Engineer Intern</em> • Remote • <span>July 2022 — Sept. 2022</span>
+                    <ul>
+                        <li>Redesigned and implemented new alert condition policies for several Kubernetes clusters in New Relic</li>
+                        <li>Eliminated false-positive alert tickets, increasing engineer productivity and improving critical alert visibility</li>
+                        <li>Created a Jira automation to mute all alerts for a cluster during an upgrade using the New Relic NerdGraph API</li>
+                        <li>Analyzed log files, reviewed alert incident data, and wrote NRQL queries to investigate cluster outages</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>University of California, Santa Cruz (Baskin School of Engineering)</strong><br>
+                    <em>Undergraduate Course Tutor</em> • Santa Cruz, CA • <span>Apr. 2022 — June 2022</span>
+                    <ul>
+                        <li>Tutor for CSE 130: Principles of Computer System Design (S22)</li>
+                        <li>Helped students solve problems and debug code in programming assignments</li>
+                        <li>Reviewed course material and taught useful programming and debugging techniques to students</li>
+                        <li>Assisted TAs during discussion sections and office hours</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>uLab Systems, Inc.</strong><br>
+                    <em>Software Engineer Intern</em> • San Mateo, CA • <span>June 2021 — Sept. 2021</span>
+                    <ul>
+                        <li>Migrated a WordPress website from Amazon Lightsail to EC2</li>
+                        <li>Designed and implemented a three-stage pipeline to streamline development and testing</li>
+                        <li>Created a secure private network to authenticate users and filter out unwanted web traffic</li>
+                        <li>Wrote AWS CLI/API Python scripts to sync data and automate the code pipeline</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>Nevtec, Inc.</strong><br>
+                    <em>Data Analyst Intern</em> • San Jose, CA • <span>June 2019 — Sept. 2019, June 2020 — Sept. 2020</span>
+                    <ul>
+                        <li>Created a real-time ticket monitoring system using Power BI and SQL to display data from a ConnectWise database</li>
+                        <li>Wrote Power BI Data Analysis Expressions (DAX) scripts to create calculated columns and transform data</li>
+                        <li>Analyzed service ticket data to measure engineer performance and compare customer IT requests</li>
+                        <li>Built dashboards to highlight key data points, including ticket response and closing times, billable hours, and project time utilization</li>
+                    </ul>
+                </div>
+                <div class="section-item">
+                    <strong>Nevtec, Inc.</strong><br>
+                    <em>Computer Technician Intern</em> • San Jose, CA • <span>June 2018 — Sept. 2018</span>
+                    <ul>
+                        <li>Wrote custom batch scripts to automate and speed up PC setups</li>
+                        <li>Configured new PCs for customers</li>
+                        <li>Catalogued enterprise data sets</li>
+                        <li>Documented the company’s internal database</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="section-list">
+
+                <div class="section-item">
+                <strong>CarbonStream: An End-to-End Carbon TCO Analyzer for Data Centers</strong> (2024 – Present)
+                <span style="color: black;">🔗</span>
+                <a href="https://github.com/melliott18/carbonstream" target="_blank">View Project</a>
+                <ul>
+                    <li>Performed a comprehensive life cycle assessment (LCA) of storage technologies to quantify environmental impacts</li>
+                    <li>Designed an optimization framework integrating cost, performance, and sustainability metrics for storage systems</li>
+                    <li>Evaluated hybrid storage architectures that enhance energy efficiency using workload‑aware strategies</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>Thread‑Safe Reader‑Writer Lock Library</strong> (Oct. 2023 – Nov. 2023)
+                <ul>
+                    <li>Developed a C library implementing a thread‑safe reader‑writer lock for shared resource synchronization</li>
+                    <li>Enabled N‑way blocking to allow multiple readers concurrent access between waiting writers</li>
+                    <li>Designed for integration into multithreaded web servers to ensure fair and efficient file access</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>In‑Memory File System</strong> (Apr. 2022)
+                <ul>
+                    <li>Built a Unix‑style in‑memory file system with a tree‑structured hierarchy in C++</li>
+                    <li>Implemented command support in a shell environment using GNU Core Utilities semantics</li>
+                    <li>Managed an inode tree with root, directory, and file mappings for efficient operations</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>Deduplicating Key‑Value Store</strong> (May 2021 – Jun. 2021)
+                <ul>
+                    <li>Engineered a deduplicating key‑value block storage system for FreeBSD in C</li>
+                    <li>Mapped 160‑bit content hashes to unique 4 KiB blocks on a memory‑mounted disk</li>
+                    <li>Used a superblock for metadata and inodes for efficient data block indexing</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>Unix Shell</strong> (Apr. 2021)
+                <span style="color: black;">🔗</span>
+                <a href="https://github.com/melliott18/cshell" target="_blank">View Project</a>
+                <ul>
+                    <li>Created a custom Unix shell supporting single/piped commands, I/O redirection, and built‑in functions</li>
+                    <li>Implemented robust error handling to validate return values and prevent crashes on malformed input</li>
+                    <li>Designed a modular architecture with token parsing, process management, and redirection logic</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>Multithreaded RPC Server</strong> (Oct. 2020 – Dec. 2020)
+                <span style="color: black;">🔗</span>
+                <a href="https://github.com/melliott18/rpc-server" target="_blank">View Project</a>
+                <ul>
+                    <li>Implemented a multithreaded RPC server in C supporting arithmetic operations and file services</li>
+                    <li>Designed a custom network protocol using network byte order for client‑server communication</li>
+                    <li>Added scalability, recursive name resolution, persistent key‑value storage, and fault tolerance</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>LZW File Compressor</strong> (Dec. 2019)
+                <span style="color: black;">🔗</span>
+                <a href="https://github.com/melliott18/file-compressor" target="_blank">View Project</a>
+                <ul>
+                    <li>Developed an LZW compression/decompression tool in C for lossless text and binary file handling</li>
+                    <li>Enhanced performance via buffered I/O, variable‑length codes, and cross‑system compatibility</li>
+                    <li>Structured code with modular design, ADTs for tries/word tables, and endian‑aware I/O</li>
+                </ul>
+                </div>
+
+                <div class="section-item">
+                <strong>Jake’s Hockey Pool</strong> (Jun. 2020 – Oct. 2020)
+                <span style="color: black;">🔗</span>
+                <a href="https://github.com/melliott18/jakes-hockey-pool" target="_blank">View Project</a>
+                <ul>
+                    <li>Created a live data interface mapping to the undocumented NHL REST API</li>
+                    <li>Contributed to data structures, schema designs, and conducted architecture reviews</li>
+                    <li>Applied modular programming practices to streamline development and testing workflows</li>
+                </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="section-list">
+                <div class="section-item">
+                    <h3>Programming</h3>
+                    <div class="skills-inline">
+                        <span>Python</span> <span>C</span> <span>C++</span> <span>Go</span> <span>Java</span> <span>JavaScript</span> <span>Bash</span> <span>MIPS</span> <span>RISC‑V</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Query &amp; Config</h3>
+                    <div class="skills-inline">
+                        <span>SQL</span> <span>NoSQL</span> <span>LaTeX</span> <span>JSON</span> <span>YAML</span> <span>NRQL</span> <span>DAX</span> <span>MIPS</span> <span>RISC‑V</span> <span>Scheme</span> <span>OCaml</span> <span>PHP</span> <span>Smalltalk</span> <span>GNU Core Utilities</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Frameworks &amp; Libraries</h3>
+                    <div class="skills-inline">
+                        <span>React</span> <span>Vue.js</span> <span>Node.js</span> <span>Flask</span> <span>Bottle</span> <span>Py4Web</span> <span>Bulma.css</span> <span>NumPy</span> <span>pandas</span> <span>scikit-learn</span> <span>TensorFlow</span> <span>PyTorch</span> <span>Matplotlib</span> <span>Seaborn</span> <span>REST API</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Cloud &amp; DevOps</h3>
+                    <div class="skills-inline">
+                        <span>AWS</span> <span>EC2</span> <span>S3</span> <span>RDS</span> <span>Lambda</span> <span>API Gateway</span> <span>VPC</span> <span>IAM</span> <span>EKS</span> <span>ECS</span> <span>ELB</span> <span>Route 53</span> <span>Elastic Beanstalk</span> <span>Lightsail</span> <span>Boto3</span> <span>ACM</span> <span>VPN</span> <span>Docker</span> <span>Kubernetes</span> <span>Jenkins</span> <span>Git</span> <span>GitHub</span> <span>GitLab</span> <span>Jira</span> <span>CI/CD</span> <span>System Design</span> <span>Agile</span> <span>Scrum</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Data &amp; Messaging</h3>
+                    <div class="skills-inline">
+                        <span>MySQL</span> <span>PostgreSQL</span> <span>SQL Server</span> <span>SQLite</span> <span>Redis</span> <span>Cassandra</span> <span>MongoDB</span> <span>Elasticsearch</span> <span>Kafka</span> <span>RabbitMQ</span> <span>REST API</span> <span>GraphQL</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Observability &amp; Infra</h3>
+                    <div class="skills-inline">
+                        <span>New Relic</span> <span>Okta</span> <span>Auth0</span> <span>Apache</span> <span>Nginx</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Tooling &amp; IDEs</h3>
+                    <div class="skills-inline">
+                        <span>VS Code</span> <span>Visual Studio</span> <span>CLion</span> <span>PyCharm</span> <span>Xcode</span> <span>Eclipse</span> <span>Sublime Text</span> <span>Vim</span> <span>Conda</span> <span>Matlab</span> <span>WordPress</span> <span>VirtualBox</span> <span>Sourcetree</span> <span>Ghidra</span> <span>SSMS</span> <span>MySQL Workbench</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Operating Systems</h3>
+                    <div class="skills-inline">
+                        <span>Ubuntu</span> <span>CentOS</span> <span>Kali Linux</span> <span>Fedora</span> <span>FreeBSD</span> <span>macOS</span> <span>Windows</span> <span>Raspberry Pi OS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="section-list">
+                <div class="section-item" style="text-align:left;">
+                    <div style="margin-bottom: 0; margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+                        <span>📞 (408) 643-4372</span> |
+                        <span>📧 <a href="mailto:mitch.elliott@pacbell.net">mitch.elliott@pacbell.net</a></span> |
+                        <span>🔗 <a href="https://linkedin.com/in/mitchellelliott18" target="_blank">LinkedIn</a></span> |
+                        <span>🐙 <a href="https://github.com/melliott18" target="_blank">GitHub</a></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Mitchell Elliott</p>
+    </footer>
+    <script>
+    // Custom theme dropdown logic with icon button and persistence
+    (function() {
+        const iconBtn = document.getElementById('theme-icon-btn');
+        const dropdown = document.getElementById('theme-dropdown');
+        const emoji = { system: '🌓', light: '☀️', dark: '🌙' };
+        let currentTheme = 'system';
+        function applyTheme(theme, isSystem) {
+            document.body.classList.remove('light-theme', 'dark-theme');
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            } else if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+            iconBtn.textContent = emoji[isSystem ? 'system' : theme];
+            currentTheme = isSystem ? 'system' : theme;
+            localStorage.setItem('portfolioTheme', currentTheme);
+        }
+        iconBtn.addEventListener('click', function(e) {
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+        document.querySelectorAll('.theme-option').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const theme = btn.getAttribute('data-theme');
+                if (theme === 'system') {
+                    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    applyTheme(systemTheme, true);
+                } else {
+                    applyTheme(theme, false);
+                }
+                dropdown.style.display = 'none';
+            });
+        });
+        // On load, set to saved theme or system
+        const savedTheme = localStorage.getItem('portfolioTheme');
+        if (savedTheme && emoji[savedTheme]) {
+            if (savedTheme === 'system') {
+                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                applyTheme(systemTheme, true);
+            } else {
+                applyTheme(savedTheme, false);
+            }
+        } else {
+            // Always default to system icon and system theme
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            applyTheme(systemTheme, true);
+        }
+        // Listen for system changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (currentTheme === 'system') {
+                applyTheme(e.matches ? 'dark' : 'light', true);
+            }
+        });
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!iconBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    })();
+    </script>
+</body>
 </html>
