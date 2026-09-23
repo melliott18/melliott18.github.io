@@ -1,6 +1,6 @@
 # Portfolio review and proposed overhaul
 
-Prepared September 17, 2026. Review baseline: website commit `234906d`; resume evidence repository commit `64c8e28`. Work is local on `codex/portfolio-review`. The existing website, PDF downloads, resume repository, and public LinkedIn profile have not been edited.
+Prepared September 17, 2026. Review baseline: website commit `234906d`; resume evidence repository commit `64c8e28`. Work is local on `feature/portfolio-review`. The existing website, PDF downloads, resume repository, and public LinkedIn profile have not been edited.
 
 **Revised direction:** preserve the original navy/gold palette, full content, and use of the available screen width. The first concept changed the palette and condensed the material too aggressively. The revised concept keeps the desktop sidebar, improves mobile navigation and readability, and expands the descriptions from the recent two-page base resumes without removing existing sections or history. Lead with **cloud, platform, and DevOps**, as confirmed in this review, with systems and storage research providing technical depth.
 
