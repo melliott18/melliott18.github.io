@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Mitchell Elliott's local portfolio proposal: cloud, platform, DevOps, and systems research.">
+  <title>Mitchell Elliott — Revised portfolio proposal</title>
+  <script>
+    try {
+      const saved = localStorage.getItem('portfolioReviewTheme') || localStorage.getItem('portfolioTheme');
+      if (['light', 'dark', 'system'].includes(saved)) document.documentElement.dataset.theme = saved;
+    } catch (_) { /* CSS follows the system preference when storage is unavailable. */ }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --sidebar-width: calc(11rem + 14px);
+      --layout-gap: 18px;
+      --sidebar-gutter: var(--layout-gap);
+      --sidebar-space: calc(var(--sidebar-width) + var(--sidebar-gutter));
+      --blue: #004080;
+      --gold: #ffcc00;
+      --box-border-width: 2px;
+      --background: #f5f5f5;
+      --section: #fff;
+      --entry: #ededed;
+      --control-background: var(--entry);
+      --control-text: var(--entry-text);
+      --control-hover: #dedede;
+      --text: #333;
+      --entry-text: #222;
+      --link: var(--blue);
+      --rule: #ccc;
+      --chip: var(--gold);
+      --chip-text: var(--blue);
+      --chip-border: var(--blue);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --background: #181818; --section: #181818; --entry: #232323;
+        --control-text: #fff; --control-hover: #353535;
+        --text: #eee; --entry-text: #f8f8f8; --link: var(--gold);
+        --rule: #666; --chip: var(--blue); --chip-text: var(--gold);
+      }
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --background: #181818; --section: #181818; --entry: #232323;
+      --control-text: #fff; --control-hover: #353535;
+      --text: #eee; --entry-text: #f8f8f8; --link: var(--gold);
+      --rule: #666; --chip: var(--blue); --chip-text: var(--gold);
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 137.5%; scroll-padding-top: var(--layout-gap); }
+    body { margin: 0; font: 1rem/1.6 Arial, sans-serif; color: var(--text); background: var(--background); }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    .skip-link { position: absolute; top: 8px; left: 8px; z-index: 20; padding: 10px; color: var(--blue); background: var(--gold); transform: translateY(-200%); }
+    .skip-link:focus { transform: none; }
+    .site-header { margin: var(--layout-gap) var(--layout-gap) 0 calc(var(--sidebar-space) + var(--layout-gap)); padding: 30px 24px; border: var(--box-border-width) solid var(--gold); border-radius: 8px; text-align: center; background: var(--section); color: var(--text); container-type: inline-size; }
+    .mobile-portrait { display: none; }
+    .header-copy { min-width: 0; container-type: inline-size; }
+    .site-header h1 { margin: 0; font-size: min(3rem, 14cqi); line-height: 1.2; white-space: nowrap; }
+    .site-header p { margin: 12px 0 0; font-size: 1.4rem; }
+    .site-header .focus { font-size: 1.2rem; }
+    .sidebar { position: fixed; inset: var(--sidebar-gutter) auto var(--sidebar-gutter) var(--sidebar-gutter); z-index: 10; width: var(--sidebar-width); border: var(--box-border-width) solid var(--gold); border-radius: 8px; overflow-y: auto; overscroll-behavior: contain; padding: 24px 12px; background: var(--section); color: var(--text); scrollbar-width: thin; font-size: 1.15rem; }
+    .identity { text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+    .identity img { display: block; width: 190px; max-width: 100%; height: auto; aspect-ratio: 1; margin: 0 auto 10px; object-fit: cover; border-radius: 50%; border: var(--box-border-width) solid var(--gold); }
+    .identity span { font-size: 1.3rem; font-weight: bold; white-space: nowrap; }
+    .sidebar ul { list-style: none; margin: 0; padding: 0; }
+    .sidebar nav ul { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar nav a, .downloads a { display: block; padding: 9px; border: var(--box-border-width) solid var(--blue); border-radius: 6px; background: var(--control-background); text-align: center; font-weight: bold; }
+    .section-menu > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border: var(--box-border-width) solid var(--blue); border-radius: 6px; background: var(--control-background); color: var(--control-text); font-weight: bold; list-style: none; cursor: pointer; }
+    .section-menu > summary::-webkit-details-marker { display: none; }
+    .section-menu > summary::after { content: ''; width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin: -5px 3px 0; }
+    .section-menu[open] > summary::after { transform: rotate(225deg); margin-top: 5px; }
+    .section-menu[data-enhanced] > summary { display: none; }
+    .sidebar a { color: var(--control-text); text-decoration: none; }
+    .sidebar a:hover { text-decoration: none; }
+    .sidebar nav a:is(:hover, :focus-visible), .downloads a:is(:hover, :focus-visible), .section-menu > summary:is(:hover, :focus-visible), .theme-control select:is(:hover, :focus-visible) { background: var(--control-hover); }
+    .downloads { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .downloads a { display: flex; align-items: center; justify-content: center; gap: .35em; }
+    .download-icon { width: 1em; height: 1em; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .theme-control { margin: 20px 0 0; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .theme-control[hidden] { display: none; }
+    .theme-control label { display: block; margin-bottom: 5px; font-size: 1rem; }
+    .theme-control select { width: 100%; min-height: 38px; padding: 5px 8px; border: var(--box-border-width) solid var(--blue); border-radius: 4px; background: var(--control-background); color: var(--control-text); font: inherit; }
+    .container { margin-left: var(--sidebar-space); padding: var(--layout-gap); min-width: 0; }
+    section { margin-bottom: var(--layout-gap); padding: 14px; border: var(--box-border-width) solid var(--gold); border-radius: 8px; background: var(--section); }
+    section:last-child { margin-bottom: 0; }
+    section h2 { margin: 0 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--rule); font-size: 2rem; line-height: 1.25; }
+    section h3 { margin: 0 0 10px; font-size: 1.333333rem; line-height: 1.4; }
+    .project-group-heading { margin: 24px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--rule); font-size: 1.6rem; }
+    .section-item h4 { margin: 0 0 10px; font-size: 1.333333rem; line-height: 1.4; }
+    .section-list, .education-list { display: flex; flex-direction: column; gap: 14px; }
+    .section-item, .education-item { padding: 20px; border: var(--box-border-width) solid var(--blue); border-radius: 6px; color: var(--entry-text); background: var(--entry); overflow-wrap: anywhere; }
+    .section-item p { margin: 0 0 1em; }
+    .section-item p:last-child { margin-bottom: 0; }
+    .section-item ul, .education-item ul { margin: 10px 0 0; padding-left: 22px; }
+    .section-item li, .education-item li { margin-bottom: 10px; }
+    .section-item li:last-child, .education-item li:last-child { margin-bottom: 0; }
+    .section-item a { font-weight: bold; }
+    .skills-inline { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 10px; }
+    .skills-inline span { max-width: 100%; padding: 8px 14px; border: var(--box-border-width) solid var(--chip-border); border-radius: 6px; background: var(--chip); color: var(--chip-text); font-weight: 500; }
+    .project-link-note { display: inline-block; font-size: .9rem; }
+    .footer { margin: 14px 0 0; color: var(--text); text-align: center; }
+    .footer p { margin: 0; }
+    @media (max-width: 50em) {
+      html { scroll-padding-top: 0; }
+      .site-header, .container { margin-left: 0; }
+      .site-header { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 12px 16px; margin: 12px 16px 0; padding: 16px; text-align: left; }
+      .mobile-portrait { display: block; width: 96px; height: 96px; object-fit: cover; border: var(--box-border-width) solid var(--gold); border-radius: 50%; }
+      .site-header h1 { font-size: min(2rem, 14cqi); }
+      .site-header p { margin-top: 6px; font-size: 1.05rem; line-height: 1.4; }
+      .site-header .focus { grid-column: 1 / -1; margin: 0; font-size: .9rem; line-height: 1.5; }
+      .sidebar { position: static; width: auto; margin: 12px 16px 0; padding: 8px; overflow: visible; font-size: 1rem; }
+      .sidebar .identity { display: none; }
+      .section-menu > summary, .section-menu[data-enhanced] > summary { display: flex; min-height: 48px; }
+      .sidebar nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 12px; }
+      .sidebar nav li { min-width: 0; }
+      .sidebar nav li:last-child { grid-column: 1 / -1; }
+      .sidebar nav a { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 4px; font-size: .9rem; }
+      .sidebar-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
+      .downloads { flex-direction: row; flex-wrap: wrap; margin: 0; padding: 0; border: 0; gap: 8px; }
+      .downloads a { min-height: 44px; padding: 6px 10px; font-size: .95rem; }
+      .theme-control { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 0 0 12px; border: 0; border-left: 1px solid var(--rule); }
+      .theme-control label { margin: 0; font-size: .85rem; }
+      .theme-control select { width: auto; min-height: 44px; font-size: .9rem; }
+      .container { padding: 16px; }
+      section { padding: 10px; }
+      section h2 { font-size: 1.8rem; }
+      .section-item, .education-item { padding: 14px; }
+      .skills-inline span { padding: 6px 10px; }
+    }
+    @media (max-width: 30em) {
+      .site-header { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 12px; text-align: center; }
+      .site-header h1 { font-size: min(1.65rem, 14cqi); }
+      .site-header p { font-size: 1rem; }
+      .site-header .focus { font-size: .85rem; line-height: 1.4; }
+      .mobile-portrait { justify-self: center; width: 80px; height: 80px; }
+      .theme-control { width: 100%; padding: 10px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+    }
+    @media print {
+      :root { --box-border-width: 1px; }
+      .sidebar, .skip-link { display: none; }
+      .mobile-portrait { display: none; }
+      .site-header, .container { margin-left: 0; }
+      .site-header { margin: 0 0 18px; background: #fff; color: #222; }
+      .container { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <img class="mobile-portrait" src="../assets/images/picture.jpeg" alt="Mitchell Elliott" width="96" height="96">
+    <div class="header-copy">
+      <h1>Mitchell Elliott</h1>
+      <p>Software Engineer</p>
+    </div>
+    <p class="focus">Cloud, platform &amp; DevOps · Systems research</p>
+  </header>
+  <aside class="sidebar" aria-label="Portfolio navigation and downloads">
+    <div class="identity">
+      <img src="../assets/images/picture.jpeg" alt="Mitchell Elliott" width="190" height="190">
+      <span>Mitchell Elliott</span>
+    </div>
+    <details class="section-menu" open>
+      <summary>Sections</summary>
+      <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      </nav>
+    </details>
+    <div class="sidebar-tools">
+      <div class="downloads">
+        <a href="../Mitchell_Elliott_Resume.pdf" target="_blank" rel="noopener"><svg class="download-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg><span>Resume</span></a>
+        <a href="../Mitchell_Elliott_CV.pdf" target="_blank" rel="noopener"><svg class="download-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg><span>CV</span></a>
+      </div>
+      <div class="theme-control" hidden>
+        <label for="theme">Theme</label>
+        <select id="theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+    <main id="main" class="container" tabindex="-1">
+        <section id="about">
+            <h2>About</h2>
+            <div class="section-item">
+                <p>
+                    Hi, I'm Mitchell. I am a software engineer working across cloud infrastructure, platform engineering, and DevOps,
+                    with a background in systems and storage research. My work spans high‑performance systems programming,
+                    storage architectures, and sustainability‑driven design, with a focus on efficiency, scalability, and environmental impact.
+                </p>
+                <p>
+                    I earned my M.S. in Computer Science from the University of California, Santa Cruz, where I worked with the Center for
+                    Research in Systems and Storage (CRSS). My research explored hybrid storage architectures, life cycle assessment (LCA),
+                    and simulation‑based approaches to evaluating and optimizing data center design across cost, performance, and
+                    sustainability metrics.
+                </p>
+                <p>
+                    In addition to my research, I served as the Head Teaching Assistant for <strong>CSE 130: Principles of Computer System Design</strong> across six quarters for a course serving over 1,000 students.
+                    I led discussion sections, created assignments and quizzes, managed course infrastructure, and developed automated
+                    grading workflows to improve efficiency and consistency in evaluating programming assignments. GitLab CI/CD handled
+                    submission checks, while full functional grading ran separately in Docker on an Ubuntu VM.
+                </p>
+                <p>
+                    Beyond academia, I’ve worked across full‑stack development, DevOps, and infrastructure automation. I’ve built CI/CD
+                    pipelines, Kubernetes monitoring solutions, and workflow integrations that improve operational reliability at scale.
+                    I approach every project with a collaborative mindset and a commitment to measurable outcomes, whether optimizing
+                    infrastructure for performance, designing cost‑effective storage systems, or integrating sustainability into
+                    engineering workflows.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="section-list">
+                <div class="section-item" data-role-id="role:ucsc-research-software-engineer">
+                    <strong>University of California, Santa Cruz (Center for Research in Systems and Storage)</strong><br>
+                    <h3 class="role-title">Research Software Engineer, Platform Infrastructure</h3>
+                    <p class="item-meta">Santa Cruz, CA • Jan. 2026 – Aug. 2026</p>
+                    <ul>
+                        <li>Led a three-person engineering team developing and operating shared systems-research infrastructure and sustainable storage-system modeling tools. Coordinated platform architecture, implementation, code review, and experiment support across parallel lab projects focused on data-center research.</li>
+                        <li>Designed sustainable hybrid storage architectures to evaluate opportunities to reduce end-to-end carbon impact in data centers, considering how storage choices affect the performance and environmental tradeoffs of the overall system.</li>
+                        <li>Developed simulation tools to model carbon emissions, performance impacts, and tradeoffs among storage-system configurations, supporting comparisons under different workload and design assumptions.</li>
+                        <li>Built reproducible data pipelines and analytics tooling for large-scale Google cluster and power trace datasets. Used bounded BigQuery extraction, Parquet datasets, and DuckDB transformations and validation to prepare reusable inputs for simulator-driven research.</li>
+                        <li>Built and maintained containerized research environments on NRP Nautilus Kubernetes with Ceph-backed persistent storage, supporting repeatable execution of compute- and data-intensive workloads across multiple users on shared infrastructure.</li>
+                        <li>Standardized deployment, configuration, data-access, and experiment workflows across Kubernetes, Ceph, BigQuery, DuckDB, and Parquet, reducing environment-specific setup and making research workloads easier to reproduce across the shared platform.</li>
+                        <li>Developed reusable self-service tools for launching, monitoring, and managing long-running experiments. The workflows improved resource utilization while avoiding thousands of dollars in equivalent GCP compute costs for the research workloads.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:ucsc-postgraduate-researcher">
+                    <strong>University of California, Santa Cruz (Center for Research in Systems and Storage)</strong><br>
+                    <h3 class="role-title">Research Software Engineer, Storage Systems</h3>
+                    <p class="item-meta">Santa Cruz, CA • Dec. 2024 – Jan. 2026</p>
+                    <ul>
+                        <li>Researched sustainable data-center storage systems by evaluating architectures across device classes and workload patterns. Compared performance, capacity, energy, carbon, and infrastructure-cost tradeoffs to inform storage design decisions.</li>
+                        <li>Applied life cycle assessment (LCA) methods to compare storage media by energy use and environmental footprint, keeping sustainability considerations alongside the performance and cost questions in the storage research.</li>
+                        <li>Modeled workload behavior across storage technologies and developed simulation and automated analysis workflows for evaluating heterogeneous hardware configurations under different workload and design assumptions.</li>
+                        <li>Designed repeatable trace-driven workflows to compare storage technologies under realistic demand, examining how workload patterns affected results across alternative storage configurations.</li>
+                        <li>Standardized experiment inputs, parameter sweeps, validation, and result review so configurations could be compared using a consistent evaluation process rather than separate, one-off analyses.</li>
+                        <li>Continued development of CarbonStream, expanding the features and datasets from my M.S. research project to support ongoing analysis of sustainable storage-system configurations.</li>
+                        <li>Collaborated with systems researchers to turn open-ended storage questions into measurable experiments and synthesize findings into architecture recommendations grounded in performance, capacity, energy, and cost tradeoffs.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:ucsc-graduate-student-researcher">
+                    <strong>University of California, Santa Cruz (Center for Research in Systems and Storage)</strong><br>
+                    <h3 class="role-title">Graduate Student Researcher</h3>
+                    <p class="item-meta">Santa Cruz, CA • Jan. 2024 – Dec. 2024</p>
+                    <ul>
+                        <li>Created CarbonStream as my M.S. research project: an end-to-end total cost of carbon analyzer for data centers that connected storage technology choices with the broader sustainability questions of infrastructure design.</li>
+                        <li>Conducted a comprehensive lifecycle analysis of storage technologies to evaluate their environmental impact across data-center infrastructure, examining storage choices as part of the research on sustainable computing.</li>
+                        <li>Developed a decision-making framework integrating cost, performance, and sustainability metrics to evaluate data-storage optimization choices and compare competing infrastructure priorities within one research framework.</li>
+                        <li>Identified hybrid storage architecture opportunities for improving energy efficiency through workload-specific strategies, linking the design of storage systems to the demands of the workloads they serve.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:perfectly-snug-software-engineer-intern">
+                    <strong>Perfectly Snug</strong><br>
+                    <h3 class="role-title">Software Engineer Intern</h3>
+                    <p class="item-meta">Remote • July 2023 – Sept. 2023</p>
+                    <ul>
+                        <li>Developed a custom material requirements planning (MRP) application using Python, SQL, Node.js, and React. Integrated inventory, customer orders, bills of materials (BOMs), and production data into a single internal system for manufacturing planning.</li>
+                        <li>Automated manufacturing process management, inventory and part tracking, reconciliation, and scheduling workflows. Combined these workflows with operational dashboards to reduce manual build-planning time by roughly 50%.</li>
+                        <li>Built dashboards and reports showing inventory availability, material requirements, order status, and production progress. Incorporated Shopify API data to support daily build plans and make manufacturing information available in a shared operational view.</li>
+                        <li>Integrated product-testing software into a mobile application to streamline the build procedure and bring testing into the manufacturing workflow.</li>
+                        <li>Worked directly with manufacturing stakeholders to gather requirements, iterate on operational workflows, and debug edge cases, translating production needs into maintainable internal software.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:parkoursc-devops-engineer-intern">
+                    <strong>ParkourSC, Inc.</strong><br>
+                    <h3 class="role-title">DevOps Engineer Intern</h3>
+                    <p class="item-meta">Remote • July 2022 – Sept. 2022</p>
+                    <ul>
+                        <li>Operated production cloud and platform infrastructure for a supply-chain application deployed across 100+ Kubernetes clusters. The environment spanned customer IoT ingestion, Kafka, Spark, Cassandra, Elasticsearch, and web services.</li>
+                        <li>Redesigned and implemented New Relic alert conditions for Kubernetes infrastructure using NRQL. Tuning reduced false-positive production alerts by approximately 80%, lowering operational noise and improving the visibility of critical alerts.</li>
+                        <li>Worked with developers to improve incident-resolution and alert-tuning workflows, standardizing how alerts were reviewed, adjusted, and escalated during production operations.</li>
+                        <li>Created Jira-based automation using the New Relic NerdGraph API to mute cluster alerts during upgrades, and automated maintenance-related alert handling around Kubernetes deployments while preserving operational context.</li>
+                        <li>Analyzed log files and alert-incident data, wrote NRQL queries, and correlated dashboards, metrics, and Kubernetes state to investigate cluster outages and isolate failures across distributed data and platform services.</li>
+                        <li>Traced deployment topology and service dependencies to distinguish problems in the web application, platform, and underlying cloud infrastructure, connecting application behavior with Kubernetes and infrastructure signals during incident triage.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:ulab-software-engineer-intern">
+                    <strong>uLab Systems, Inc.</strong><br>
+                    <h3 class="role-title">Site Reliability Engineer Intern</h3>
+                    <p class="item-meta">San Mateo, CA • June 2021 – Sept. 2021</p>
+                    <ul>
+                        <li>Migrated a production WordPress application from Amazon Lightsail to EC2 and operated the resulting AWS infrastructure. Used CloudWatch to monitor instance health while improving deployment flexibility, operational control, and maintainability.</li>
+                        <li>Built a secure private AWS environment with VPC isolation, Elastic Load Balancing, and IAM access controls, managing network boundaries and permissions for the resources and services supporting the application.</li>
+                        <li>Integrated Datawiza Access Broker with Okta to provide centralized authentication and proxy-based access controls, authenticating users and filtering unwanted web traffic before it reached the application.</li>
+                        <li>Designed and implemented a three-stage CI/CD pipeline using GitHub, AWS CodeBuild, and Amazon ECS for development, validation, and production, reducing manual release work and making the delivery process more consistent.</li>
+                        <li>Wrote AWS CLI/API Python scripts to synchronize data and automate delivery work. An S3 migration script copied objects between buckets while preserving their Access Control Lists (ACLs), retaining object-level permissions during migration.</li>
+                        <li>Used Terraform for infrastructure-as-code provisioning and repeatable AWS environment configuration, working with declarative infrastructure definitions for the application’s cloud resources.</li>
+                        <li>Created runbooks documenting provisioning, deployment, and recovery workflows for the Terraform-based AWS environment, providing repeatable operational procedures alongside the infrastructure configuration and delivery pipeline.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:nevtec-data-analyst-intern">
+                    <strong>Nevtec, Inc.</strong><br>
+                    <h3 class="role-title">Data Analyst Intern</h3>
+                    <p class="item-meta">San Jose, CA • June 2019 – Sept. 2019, June 2020 – Sept. 2020</p>
+                    <ul>
+                        <li>Created a real-time ticket-monitoring system using Power BI and SQL against ConnectWise service data. The operational dashboards were used by Nevtec’s CEO and IT support team to review service activity.</li>
+                        <li>Wrote Power BI Data Analysis Expressions (DAX) scripts to create calculated columns and transform operational service datasets for the dashboards and their service-ticket metrics.</li>
+                        <li>Analyzed ticket resolution time by issue type, compared customer IT request patterns, and provided visibility into engineer efficiency, showing where the support team’s service effort was spent.</li>
+                        <li>Built dashboard views for ticket response and closing times, billable hours, and project time utilization, bringing the key measures of service and project work into the operational reporting.</li>
+                        <li>Tracked when existing service-level objective (SLO) policies were met or violated, giving the CEO and support team visibility into service performance alongside ticket-resolution and utilization metrics.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:nevtec-computer-technician-intern">
+                    <strong>Nevtec, Inc.</strong><br>
+                    <h3 class="role-title">Computer Technician Intern</h3>
+                    <p class="item-meta">San Jose, CA • June 2018 – Sept. 2018</p>
+                    <ul>
+                        <li>Configured new PCs for customers and automated repeatable setup for dozens of machines using Windows Server, PowerShell, XML, and batch scripting.</li>
+                        <li>Wrote custom batch scripts to automate workstation provisioning and custom setup options, eliminating the need to manually click through the installation process and configure those options on each PC.</li>
+                        <li>Reduced setup time for an entire batch of PCs to the order of minutes, compared with several hours to configure the machines individually; these figures describe batch setup rather than time per machine.</li>
+                        <li>Documented tables and their relationships in Nevtec’s internal ConnectWise database, where the available documentation had previously been limited largely to basic ConnectWise documentation and public information.</li>
+                        <li>Catalogued enterprise datasets, including previously undocumented custom data in the ConnectWise database, extending the internal reference material for the company’s data structures.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="teaching">
+            <h2>Teaching</h2>
+            <div class="section-list">
+                <div class="section-item" data-role-id="role:ucsc-teaching-assistant">
+                    <strong>University of California, Santa Cruz (Baskin School of Engineering)</strong><br>
+                    <h3 class="role-title">Head Teaching Assistant</h3>
+                    <p class="item-meta">Santa Cruz, CA • Jan. 2023 – Dec. 2024</p>
+                    <ul>
+                        <li>Served as Head Teaching Assistant for CSE 130: Principles of Computer System Design across six quarters—Winter, Spring, and Fall 2023 and Winter, Spring, and Fall 2024—for an upper-division systems-programming course serving 1,000+ students.</li>
+                        <li>Reviewed course material, helped students with programming assignments and exam preparation, and led group discussion sections. Created assignments and quizzes, proctored exams, and managed the course infrastructure supporting instruction and grading.</li>
+                        <li>Coordinated course operations and mentored teaching staff across the six offerings, standardizing documentation, grading workflows, issue escalation, onboarding, and staff coverage while managing competing priorities and scheduling conflicts.</li>
+                        <li>Taught students to design clean, modular C/C++ systems software and to use and create reusable code libraries. Led technical discussions covering concurrency, networking, memory management, and reliable systems programming.</li>
+                        <li>Guided students through testing harnesses, edge-case discovery, and unit, regression, and end-to-end tests. The course supplied a subset of assignment tests, and students were instructed to write additional tests for specific functionality and difficult edge cases.</li>
+                        <li>Taught runtime debugging with GDB, execution profiling with Linux perf, and runtime inspection through Linux /proc, shell piping, and logging or print debugging to investigate systems-software behavior.</li>
+                        <li>Helped students diagnose performance bottlenecks, concurrency and synchronization problems, parsing errors, memory errors, network failures, improper file I/O, bad file descriptors, and function or system-call return errors.</li>
+                        <li>Built and maintained automated grading and feedback workflows. GitLab CI/CD handled compilation, formatting, and required-file checks, while full functional grading ran separately in Docker on an Ubuntu VM; the automation reduced overall grading time by an estimated 50%.</li>
+                    </ul>
+                </div>
+                <div class="section-item" data-role-id="role:ucsc-undergraduate-course-tutor">
+                    <strong>University of California, Santa Cruz (Baskin School of Engineering)</strong><br>
+                    <h3 class="role-title">Undergraduate Course Tutor</h3>
+                    <p class="item-meta">Santa Cruz, CA • Apr. 2022 – June 2022</p>
+                    <ul>
+                        <li>Tutored students in CSE 130: Principles of Computer System Design during Spring 2022, supporting the systems coursework and programming assignments.</li>
+                        <li>Helped students work through programming-assignment problems and debug their code, providing practical support as they applied the course’s systems concepts.</li>
+                        <li>Reviewed course material and taught useful programming and debugging techniques, helping students connect the material discussed in class with their assignment work.</li>
+                        <li>Assisted teaching assistants during discussion sections and office hours, supporting students’ questions about the course material and programming exercises.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Research platforms, developer tools, distributed systems, and application projects. Each entry describes the implementation and its context.</p>
+            <h3 class="project-group-heading">Research, systems, and application projects</h3>
+            <div class="section-list">
+
+                <div class="section-item" data-project-id="workload-trace-analysis-platform">
+                    <h4>Workload Trace Analysis Platform</h4>
+                    <p class="item-meta">Jan. 2026 – Aug. 2026 · UCSC Center for Research in Systems and Storage</p>
+                    <p>A research data platform that turns multi-month Google cluster and power traces into reusable, simulator-ready datasets.</p>
+                    <ul>
+                        <li>Built bounded extraction workflows with BigQuery for source traces stored in Google Cloud Storage, bringing selected datasets into repeatable local analysis workflows.</li>
+                        <li>Materialized extracted traces as Parquet and used DuckDB to query, transform, and join datasets without repeatedly scanning the full remote source.</li>
+                        <li>Validated dataset schemas and processed outputs before packaging workload inputs for downstream storage simulations.</li>
+                        <li>Created CLI and automated testing workflows covering dataset selection, BigQuery extraction, Parquet conversion, DuckDB processing, and simulator-input preparation.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="sedaro-nano">
+                    <h4>SimOps Workbench: Simulation Experiment Dashboard</h4>
+                    <p class="item-meta">June 2026 · Personal simulation project</p>
+                    <p>Extended an existing dynamics-simulation application with a TypeScript and React workspace for configuring, running, comparing, and reopening experiments.</p>
+                    <ul>
+                        <li>Built self-service controls for simulation scenarios, parameter sweeps, and explicit batches, with run-status monitoring and bounded local parallelism.</li>
+                        <li>Integrated Flask APIs and SQLite-backed experiment history so completed experiments could be reopened, reproduced, and compared.</li>
+                        <li>Added interactive Plotly analysis with selectable telemetry to inspect individual runs and compare simulation results.</li>
+                        <li>Implemented JSON and CSV exports, printable reports, diagnostics, and local storage controls for analysis and sharing.</li>
+                        <li>Provided a Docker Compose workflow for repeatable local execution of the dashboard and simulation services.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="cognistore">
+                    <h4>CogniStore: AI-Powered Data Lifecycle Manager</h4>
+                    <p class="item-meta">Sept. 2025 – Present · Storage lifecycle project</p>
+                    <p>A storage-management platform combining a common lifecycle API, semantic metadata retrieval, and automated placement policies.</p>
+                    <p class="project-link-note">Public repository link pending</p>
+                    <ul>
+                        <li>Unified heterogeneous file, block, and object storage services behind a common API for data lifecycle management.</li>
+                        <li>Built a modular storage abstraction layer integrating PostgreSQL with pgvector, OpenSearch, and Redis for metadata persistence, semantic indexing, and low-latency retrieval.</li>
+                        <li>Implemented an AI-driven policy engine that places data across storage tiers according to lifecycle, cost, performance, and sustainability goals.</li>
+                        <li>Used GitHub Actions in the CI/CD workflow to run automated tests.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="carbonstream">
+                    <h4>CarbonStream: Data Center Carbon TCO Simulator</h4>
+                    <p class="item-meta">Jan. 2024 – Present · UCSC Center for Research in Systems and Storage</p>
+                    <p>A Python trace-driven simulator, originating in my M.S. research, for comparing heterogeneous storage architectures across performance, capacity, energy use, and carbon impact.</p>
+                    <ul>
+                        <li>Modeled workload behavior using device latency, throughput, power, lifespan, capacity, and regional carbon-intensity inputs under changing demand.</li>
+                        <li>Implemented bottleneck detection and service-level-objective checks within the simulator to evaluate candidate storage configurations.</li>
+                        <li>Added configuration search, parameter sweeps, and automated CSV and visualization outputs for repeatable storage-architecture comparisons.</li>
+                        <li>Used historical workload traces, including Wikipedia Varnish webrequests, and viewed historical Wikipedia data with Grafana and Prometheus.</li>
+                        <li>Used perf, fio, gem5, and SimpleSSD during early SSD simulation and TCO-simulator prototyping; visualized perf data with Flamegraphs.</li>
+                        <li>Recorded SSD I/O with blktrace and used additional workload traces in blktrace format as inputs to early simulator development.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="ucsc-automated-grading">
+                    <h4>Automated Grading Infrastructure</h4>
+                    <p class="item-meta">Jan. 2023 – Dec. 2024 · UCSC CSE 130: Principles of Computer System Design</p>
+                    <p>Developed and maintained submission checks, containerized grading, and feedback workflows for a course serving 1,000+ students. The work combined my own implementation with shared course infrastructure and coauthored tests; I estimate it reduced overall grading time by approximately 50%.</p>
+                    <ul>
+                        <li>Maintained lightweight hosted GitLab checks for compilation, formatting, and required files. Added an assignment-aware Python CI entrypoint that selects assignments from Git history and propagates failed checks through CI job status.</li>
+                        <li>Automated roster and repository preparation, assignment checkout, and full-grader execution using shared Python and Bash workflows. Full functional grading ran separately in Docker on a local Ubuntu VM, with assignment-specific settings, timeouts, and cleanup.</li>
+                        <li>Authored a configurable C reader/writer-lock test harness using pthread mutexes and condition variables for coordinated starts and exclusion checks, and expanded N-way stress testing through 50 reader and 50 writer threads.</li>
+                        <li>Expanded HTTP parsing, data-integrity, error-response, and concurrent-interleaving tests. Corrected an inherited LD_PRELOAD/dlsym partial-I/O shim and extended shared fault-injection tests; maintained Clang/Make checks and used shared Valgrind memory and leak checks.</li>
+                        <li>Built Python tools to compare grading runs, report higher/lower/equal totals and summary statistics, and reconcile results by keeping each student’s entire higher-total rubric while retaining entries present in only one run.</li>
+                        <li>Integrated and operated shared Canvas API publication through the Python canvasapi client for rubric scores and feedback, with documented review and publishing procedures.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="nrwlock">
+                    <h4>NRWLock: Thread-Safe Reader-Writer Lock Library</h4>
+                    <p class="item-meta">Oct. 2023 – Nov. 2023 · Systems programming project</p>
+                    <p>A C synchronization library for coordinating concurrent readers and writers that share a resource, including intended use in multithreaded web servers.</p>
+                    <ul>
+                        <li>Used POSIX mutexes and condition variables to coordinate concurrent access and express reader/writer admission rules.</li>
+                        <li>Implemented configurable priority policies and N-way blocking to control how many readers may proceed between waiting writers.</li>
+                        <li>Explored scheduling tradeoffs among fairness, throughput, and starvation prevention when multiple readers and writers compete for the same resource.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="in-memory-file-system">
+                    <h4>In-Memory File System</h4>
+                    <p class="item-meta">Apr. 2022 · Systems programming project</p>
+                    <p>A Unix-style filesystem simulation in C++ that combines an in-memory hierarchy with an interactive terminal shell.</p>
+                    <p><a href="https://github.com/melliott18/memory-fs" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Built a tree-structured data model for directory and file objects, with a root inode and mappings that organize the filesystem hierarchy.</li>
+                        <li>Implemented shell commands modeled on GNU Core Utilities semantics for directory navigation and file operations within the simulated filesystem.</li>
+                        <li>Connected command handling to inode-tree operations so users could locate entries, modify files and directories, and navigate the in-memory representation.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="multi-server-file-replication-system">
+                    <h4>Multi-Server File Replication System</h4>
+                    <p class="item-meta">Feb. 2022 · Network programming project</p>
+                    <p>A concurrent UDP client for replicating files to multiple servers while handling unreliable packet delivery in application-level protocol logic.</p>
+                    <ul>
+                        <li>Implemented concurrent transmission of file data to multiple destination servers over UDP.</li>
+                        <li>Built a custom sliding-window protocol with retransmission tracking to handle packet loss and reordering during transfers.</li>
+                        <li>Logged per-packet timestamps, IP addresses, ports, and sequence numbers to support debugging and analysis across participating servers.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="cse138-distributed-key-value-store">
+                    <h4>Distributed Key-Value Store</h4>
+                    <p class="item-meta">Oct. 2021 – Dec. 2021 · Distributed systems project</p>
+                    <p>A Go distributed key-value store that evolves an in-memory HTTP API into a system with causal consistency, replication, and sharding.</p>
+                    <ul>
+                        <li>Implemented reverse-proxy request forwarding and replica-to-replica HTTP handlers for communication among distributed service nodes.</li>
+                        <li>Built concurrent broadcast paths for ordinary replication and failed-replica view updates.</li>
+                        <li>Implemented vector-clock operations to track causality in the distributed key-value API.</li>
+                        <li>Added shard-query responses and shard-aware routing that sends writes to the owning shard and replicates them within that shard.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="software-defined-ipv4-router">
+                    <h4>Software-Defined IPv4 Router</h4>
+                    <p class="item-meta">Nov. 2021 · Simulated network project</p>
+                    <p>A Mininet-based enterprise-network simulation for exploring IPv4 routing, host isolation, and traffic policy across subnets.</p>
+                    <ul>
+                        <li>Designed a multi-floor network topology with isolated, trusted, and untrusted hosts to model different communication boundaries.</li>
+                        <li>Implemented a custom POX controller for inter-subnet routing and firewall rules using TCP/IP and ICMP traffic filtering.</li>
+                        <li>Validated connectivity and network segmentation through repeatable Mininet and Wireshark tests.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="ddfs">
+                    <h4>DDFS: Deduplicating Key-Value Block Store</h4>
+                    <p class="item-meta">May 2021 – June 2021 · Team course prototype on FreeBSD</p>
+                    <p>A C prototype exploring content-addressed block storage and deduplication, with implementation focused on disk formatting and userspace key-value block operations.</p>
+                    <p><a href="https://github.com/melliott18/ddfs" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Used hashed addressing to map 160-bit content keys to unique 4 KiB blocks and identify duplicate data within the block store.</li>
+                        <li>Worked on persistent storage structures including a metadata superblock and inodes that map addresses to stored data blocks.</li>
+                        <li>Developed block-allocation, address-translation, inode-management, and retrieval workflows connecting key-value operations to persistent block mappings.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="unix-shell">
+                    <h4>Unix Shell</h4>
+                    <p class="item-meta">Apr. 2021 · Systems programming project</p>
+                    <p>A custom shell in C with Flex-based token parsing and separate components for command interpretation, process execution, and input/output handling.</p>
+                    <p><a href="https://github.com/melliott18/cshell" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Implemented single-command execution, single-pipe command forms, input/output redirection, and built-in commands including cd and exit.</li>
+                        <li>Separated token parsing, process management, and redirection logic so the responsibilities of command execution remained modular.</li>
+                        <li>Added checks for operation return values and malformed input to detect failures during command execution.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="mrpc">
+                    <h4>MRPC: Multithreaded RPC Server</h4>
+                    <p class="item-meta">Oct. 2020 – Dec. 2020 · Networked systems project</p>
+                    <p>A C remote procedure call server that combines concurrent socket handling, server-side file operations, and persistent variables.</p>
+                    <p><a href="https://github.com/melliott18/rpc-server" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Implemented concurrent request processing with worker threads and a request queue for socket-based clients.</li>
+                        <li>Designed a custom binary client-server protocol transmitting requests and responses in network byte order.</li>
+                        <li>Provided remote arithmetic operations and file services for creating, reading, writing, and querying the size of server-side files.</li>
+                        <li>Added recursive variable lookup and persistent key-value logging and loading to support stateful request handling.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="jakes-hockey-pool">
+                    <h4>Jake’s Hockey Pool</h4>
+                    <p class="item-meta">June 2020 – Oct. 2020 · Full-stack application project</p>
+                    <p>A hockey-pool application connecting an external live NHL data feed to application state and pool workflows.</p>
+                    <p><a href="https://github.com/melliott18/jakes-hockey-pool" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Created a data-feed interface to the undocumented NHL REST API and mapped that external data into the application’s hockey-pool workflows.</li>
+                        <li>Contributed to data structures and relational schema design for application state and the relationships needed by pool features.</li>
+                        <li>Participated in architecture reviews and design discussions, applying modular programming practices to organize reusable code and support development and testing.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="lzw-file-compressor">
+                    <h4>LZW File Compressor</h4>
+                    <p class="item-meta">Dec. 2019 · Systems programming project</p>
+                    <p>A command-line C tool implementing lossless LZW compression and decompression for text and binary files.</p>
+                    <p><a href="https://github.com/melliott18/file-compressor" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+                    <ul>
+                        <li>Implemented both encoding and decoding so the tool could compress source files and reconstruct their original contents.</li>
+                        <li>Used buffered file I/O in 4 KiB blocks and variable-width codes in the compression workflow.</li>
+                        <li>Organized the implementation around modular abstract data types for tries and word tables, with endian-aware I/O for file handling.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <h3 class="project-group-heading" id="professional-projects-heading">Projects from professional work</h3>
+            <p>Implementation work completed within the roles listed above. These headings describe work initiatives within those internships.</p>
+            <div class="section-list">
+
+                <div class="section-item" data-project-id="perfectly-snug-mrp">
+                    <h4>Material Requirements Planning System</h4>
+                    <p class="item-meta">July 2023 – Sept. 2023 · Perfectly Snug · Software Engineer Intern</p>
+                    <p>An internal application bringing inventory, customer orders, bills of materials, and production data into one manufacturing-planning workflow.</p>
+                    <ul>
+                        <li>Developed the application with Python, Node.js, React, and SQL, integrating material requirements and production data into a database-backed internal system.</li>
+                        <li>Built operational dashboards for inventory availability, material requirements, order status, and production progress.</li>
+                        <li>Automated reconciliation and scheduling workflows, reducing manual planning time by roughly 50%.</li>
+                        <li>Worked directly with manufacturing stakeholders to gather requirements, refine workflows, debug edge cases, and turn production needs into maintainable internal software.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="perfectly-snug-product-testing-mobile">
+                    <h4>Product-Testing Mobile Integration</h4>
+                    <p class="item-meta">July 2023 – Sept. 2023 · Perfectly Snug · Software Engineer Intern</p>
+                    <p>A mobile integration supporting the product-build workflow during the manufacturing software internship.</p>
+                    <ul>
+                        <li>Integrated product-testing software into a mobile application to streamline the procedures used to build products.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="parkoursc-observability-alerting">
+                    <h4>Production Monitoring and Alert Automation</h4>
+                    <p class="item-meta">July 2022 – Sept. 2022 · ParkourSC · DevOps Engineer Intern</p>
+                    <p>Production infrastructure and observability work for a supply-chain application deployed across 100+ Kubernetes clusters.</p>
+                    <ul>
+                        <li>Worked across application and infrastructure dependencies including IoT ingestion, Kafka, Spark, Cassandra, Elasticsearch, and web services.</li>
+                        <li>Tuned New Relic policies with NRQL and standardized alert review with developers, helping reduce false-positive production alerts by approximately 80%.</li>
+                        <li>Integrated New Relic and Jira automation to suppress maintenance-related alerts during deployments and cluster upgrades while preserving operational context.</li>
+                        <li>Triaged incidents across application, platform, and cloud layers by correlating Kubernetes state, dashboards, metrics, logs, and service dependencies.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="ulab-cloud-migration">
+                    <h4>AWS Migration and Deployment Infrastructure</h4>
+                    <p class="item-meta">June 2021 – Sept. 2021 · uLab Systems · Site Reliability Engineer Intern</p>
+                    <p>An application migration and delivery workflow covering AWS infrastructure, access controls, data movement, and repeatable deployments.</p>
+                    <ul>
+                        <li>Migrated a production application from Amazon Lightsail to EC2 with VPC isolation, Elastic Load Balancing, IAM access controls, and CloudWatch monitoring.</li>
+                        <li>Built a CI/CD pipeline using GitHub, AWS CodeBuild, and Amazon ECS for development, validation, and production.</li>
+                        <li>Worked with Terraform-based AWS configuration and documented provisioning, deployment, and recovery workflows.</li>
+                        <li>Automated S3 object migration in Python while preserving object-level access control lists.</li>
+                        <li>Integrated Datawiza Access Broker and Okta for centralized application authentication and proxy-based access controls.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="nevtec-ticket-monitoring">
+                    <h4>Service Ticket Monitoring and Dashboards</h4>
+                    <p class="item-meta">June–Sept. 2019; June–Sept. 2020 · Nevtec · Data Analyst Intern</p>
+                    <p>Operational reporting that connected ConnectWise service-ticket data with dashboards used by Nevtec’s CEO and IT support team.</p>
+                    <ul>
+                        <li>Created a real-time ticket-monitoring system with Power BI and SQL to display and analyze ConnectWise service records.</li>
+                        <li>Wrote DAX scripts for calculated columns and transformations of operational service datasets.</li>
+                        <li>Built dashboards covering response and closing times, billable hours, project time utilization, and time spent resolving different ticket types.</li>
+                        <li>Provided metrics for comparing engineer efficiency, customer request patterns, and whether service-level-objective policies were met or violated.</li>
+                    </ul>
+                </div>
+
+                <div class="section-item" data-project-id="nevtec-workstation-provisioning">
+                    <h4>Workstation Provisioning Automation</h4>
+                    <p class="item-meta">June 2018 – Sept. 2018 · Nevtec · Computer Technician Intern</p>
+                    <p>Automated setup and configuration of new customer PCs using Windows Server, PowerShell, XML, and batch scripting.</p>
+                    <ul>
+                        <li>Created repeatable provisioning workflows that configured dozens of PCs and applied custom installation options.</li>
+                        <li>Eliminated manual clicks through the installation process and manual application of configuration options.</li>
+                        <li>Reduced setup for an entire batch of PCs to the order of minutes, compared with several hours to configure the PCs individually.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <p class="section-intro">A comprehensive inventory of technologies, tools, and engineering practices across my work, projects, and coursework.</p>
+            <div class="section-list">
+                <div class="section-item">
+                    <h3>Programming and query languages</h3>
+                    <div class="skills-inline">
+                        <span>Assembly</span>
+                        <span>Bash</span>
+                        <span>Batch scripting</span>
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>DAX</span>
+                        <span>Go</span>
+                        <span>Java</span>
+                        <span>JavaScript</span>
+                        <span>NRQL</span>
+                        <span>OCaml</span>
+                        <span>PHP</span>
+                        <span>PowerShell</span>
+                        <span>Python</span>
+                        <span>Scheme</span>
+                        <span>Smalltalk</span>
+                        <span>SQL</span>
+                        <span>TypeScript</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Software design and development</h3>
+                    <div class="skills-inline">
+                        <span>Abstract data types</span>
+                        <span>Asynchronous workflows</span>
+                        <span>Automated testing</span>
+                        <span>Automated validation</span>
+                        <span>Causal consistency</span>
+                        <span>Code review</span>
+                        <span>Compiler design</span>
+                        <span>Computational models</span>
+                        <span>Computer science education</span>
+                        <span>Data structures and algorithms</span>
+                        <span>Distributed systems</span>
+                        <span>Edge-case identification</span>
+                        <span>End-to-end testing</span>
+                        <span>Error handling</span>
+                        <span>Fault handling</span>
+                        <span>Fault tolerance</span>
+                        <span>Functional programming</span>
+                        <span>LZW compression</span>
+                        <span>Modular programming</span>
+                        <span>PLY</span>
+                        <span>Policy engines</span>
+                        <span>Programming language concepts</span>
+                        <span>Regression testing</span>
+                        <span>Remote execution</span>
+                        <span>Remote procedure calls (RPC)</span>
+                        <span>Replication</span>
+                        <span>Reusable library development</span>
+                        <span>Reverse proxies</span>
+                        <span>Scalable systems</span>
+                        <span>SHA-1</span>
+                        <span>Sharding</span>
+                        <span>Software design</span>
+                        <span>Software testing</span>
+                        <span>System design</span>
+                        <span>Systems analysis</span>
+                        <span>Test harness development</span>
+                        <span>Test suite development</span>
+                        <span>Tries</span>
+                        <span>Unit testing</span>
+                        <span>Variable-length codes</span>
+                        <span>Vector clocks</span>
+                        <span>Word tables</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Web development and APIs</h3>
+                    <div class="skills-inline">
+                        <span>Apache</span>
+                        <span>API development</span>
+                        <span>Backend engineering</span>
+                        <span>Bottle</span>
+                        <span>Bulma.css</span>
+                        <span>FastAPI</span>
+                        <span>Flask</span>
+                        <span>Full-stack engineering</span>
+                        <span>GraphQL</span>
+                        <span>gRPC</span>
+                        <span>HTTP services</span>
+                        <span>Internal tools development</span>
+                        <span>MediaWiki</span>
+                        <span>Mobile application integration</span>
+                        <span>Nginx</span>
+                        <span>Node.js</span>
+                        <span>Py4Web</span>
+                        <span>React</span>
+                        <span>REST APIs</span>
+                        <span>Shopify API</span>
+                        <span>Varnish</span>
+                        <span>Vue.js</span>
+                        <span>Web applications</span>
+                        <span>WordPress</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Databases and search</h3>
+                    <div class="skills-inline">
+                        <span>Apache Cassandra</span>
+                        <span>Data modeling</span>
+                        <span>Database design</span>
+                        <span>Database systems</span>
+                        <span>DuckDB</span>
+                        <span>Elasticsearch</span>
+                        <span>Google BigQuery</span>
+                        <span>MongoDB</span>
+                        <span>MySQL</span>
+                        <span>MySQL Workbench</span>
+                        <span>NoSQL</span>
+                        <span>OpenSearch</span>
+                        <span>pgvector</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                        <span>Relational databases</span>
+                        <span>Relational schema design</span>
+                        <span>Semantic indexing</span>
+                        <span>SQL Server</span>
+                        <span>SQLite</span>
+                        <span>SSMS</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Storage and filesystems</h3>
+                    <div class="skills-inline">
+                        <span>Address translation</span>
+                        <span>AI-driven storage placement policy</span>
+                        <span>Archival storage system design</span>
+                        <span>Block allocation</span>
+                        <span>Block storage</span>
+                        <span>Ceph</span>
+                        <span>Data deduplication</span>
+                        <span>File storage</span>
+                        <span>Filesystem internals</span>
+                        <span>Filesystems</span>
+                        <span>Hashed addressing</span>
+                        <span>Inode management</span>
+                        <span>Key-value storage</span>
+                        <span>MinIO</span>
+                        <span>NFS</span>
+                        <span>NVMe</span>
+                        <span>Object storage</span>
+                        <span>Reference counting</span>
+                        <span>RocksDB</span>
+                        <span>Storage abstraction layers</span>
+                        <span>Storage internals</span>
+                        <span>Storage lifecycle management</span>
+                        <span>Storage optimization</span>
+                        <span>Storage systems</span>
+                        <span>Storage tiering</span>
+                        <span>ZFS</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Data engineering and analytics</h3>
+                    <div class="skills-inline">
+                        <span>Apache Kafka</span>
+                        <span>Apache Parquet</span>
+                        <span>Apache Spark</span>
+                        <span>Batch processing</span>
+                        <span>CSV</span>
+                        <span>Dashboard development</span>
+                        <span>Data engineering</span>
+                        <span>Data ingestion</span>
+                        <span>Data lifecycle management</span>
+                        <span>Data migration</span>
+                        <span>Data pipelines</span>
+                        <span>Data synchronization</span>
+                        <span>Data transformation</span>
+                        <span>Data visualization</span>
+                        <span>JSON</span>
+                        <span>Jupyter</span>
+                        <span>LaTeX</span>
+                        <span>MATLAB</span>
+                        <span>Matplotlib</span>
+                        <span>NumPy</span>
+                        <span>Pandas</span>
+                        <span>Plotly</span>
+                        <span>Power BI</span>
+                        <span>RabbitMQ</span>
+                        <span>Reproducible analytics</span>
+                        <span>Schema mirroring</span>
+                        <span>Schema transformation</span>
+                        <span>Schema validation</span>
+                        <span>Seaborn</span>
+                        <span>Telemetry ingestion</span>
+                        <span>Telemetry pipelines</span>
+                        <span>VarnishKafka</span>
+                        <span>XML</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Cloud and containers</h3>
+                    <div class="skills-inline">
+                        <span>Amazon EC2</span>
+                        <span>Amazon ECS</span>
+                        <span>Amazon Lightsail</span>
+                        <span>Amazon RDS</span>
+                        <span>Amazon S3</span>
+                        <span>Amazon VPC</span>
+                        <span>Amazon Web Services (AWS)</span>
+                        <span>API Gateway</span>
+                        <span>AWS APIs</span>
+                        <span>AWS Lambda</span>
+                        <span>Boto3</span>
+                        <span>Cloud infrastructure</span>
+                        <span>Cloud migration</span>
+                        <span>Containers</span>
+                        <span>Cost optimization</span>
+                        <span>Docker</span>
+                        <span>Docker Compose</span>
+                        <span>EKS</span>
+                        <span>Elastic Beanstalk</span>
+                        <span>Elastic Load Balancing</span>
+                        <span>Google Cloud Platform (GCP)</span>
+                        <span>Google Cloud Storage</span>
+                        <span>Google Cloud VPC</span>
+                        <span>Google Compute Engine</span>
+                        <span>Infrastructure cost analysis</span>
+                        <span>Kubernetes</span>
+                        <span>NRP Nautilus</span>
+                        <span>Route 53</span>
+                        <span>VirtualBox</span>
+                        <span>WikiKube</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Automation, delivery, and developer tools</h3>
+                    <div class="skills-inline">
+                        <span>API automation</span>
+                        <span>Automated grading</span>
+                        <span>AWS CLI</span>
+                        <span>AWS CodeBuild</span>
+                        <span>Build automation</span>
+                        <span>CI/CD</span>
+                        <span>Clang</span>
+                        <span>clang-format</span>
+                        <span>CLI automation</span>
+                        <span>CLI development</span>
+                        <span>CLion</span>
+                        <span>Conda</span>
+                        <span>Deployment automation</span>
+                        <span>Deployment pipelines</span>
+                        <span>DevOps</span>
+                        <span>Eclipse</span>
+                        <span>Environment configuration</span>
+                        <span>flex</span>
+                        <span>Git</span>
+                        <span>Git submodules</span>
+                        <span>GitHub</span>
+                        <span>GitHub Actions</span>
+                        <span>GitLab</span>
+                        <span>GitLab CI/CD</span>
+                        <span>Infrastructure as code</span>
+                        <span>Infrastructure automation</span>
+                        <span>Jenkins</span>
+                        <span>Make</span>
+                        <span>PyCharm</span>
+                        <span>Release workflows</span>
+                        <span>Self-service tooling</span>
+                        <span>Sourcetree</span>
+                        <span>Sublime Text</span>
+                        <span>Terraform</span>
+                        <span>Version control</span>
+                        <span>Vim</span>
+                        <span>Visual Studio</span>
+                        <span>VS Code</span>
+                        <span>Workflow automation</span>
+                        <span>Xcode</span>
+                        <span>YAML</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Operating systems and concurrency</h3>
+                    <div class="skills-inline">
+                        <span>Buffered I/O</span>
+                        <span>CentOS</span>
+                        <span>Computer architecture</span>
+                        <span>Concurrency</span>
+                        <span>Condition variables</span>
+                        <span>dlsym</span>
+                        <span>Embedded operating systems</span>
+                        <span>Endian-aware I/O</span>
+                        <span>Fedora</span>
+                        <span>FreeBSD</span>
+                        <span>GNU Core Utilities</span>
+                        <span>I/O redirection</span>
+                        <span>Kali Linux</span>
+                        <span>Linux</span>
+                        <span>macOS</span>
+                        <span>Memory management</span>
+                        <span>MIPS</span>
+                        <span>Multithreading</span>
+                        <span>Mutexes</span>
+                        <span>Mutual exclusion</span>
+                        <span>N-Way blocking</span>
+                        <span>Operating systems</span>
+                        <span>Pipes (Shell piping)</span>
+                        <span>POSIX</span>
+                        <span>POSIX synchronization</span>
+                        <span>POSIX threads</span>
+                        <span>Priority scheduling</span>
+                        <span>Process management</span>
+                        <span>Raspberry Pi OS</span>
+                        <span>Reader-writer locks</span>
+                        <span>RISC-V</span>
+                        <span>Scheduling</span>
+                        <span>Starvation prevention</span>
+                        <span>Synchronization</span>
+                        <span>Systems programming</span>
+                        <span>Token parsing</span>
+                        <span>Ubuntu</span>
+                        <span>Unix</span>
+                        <span>Unix systems programming</span>
+                        <span>Windows</span>
+                        <span>Windows Server</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Networking</h3>
+                    <div class="skills-inline">
+                        <span>Client-server protocols</span>
+                        <span>HTTP</span>
+                        <span>ICMP</span>
+                        <span>Inter-subnet routing</span>
+                        <span>Internet of Things (IoT)</span>
+                        <span>IPv4</span>
+                        <span>Linux networking</span>
+                        <span>Load balancing</span>
+                        <span>Mininet</span>
+                        <span>Network byte order</span>
+                        <span>Network programming</span>
+                        <span>Network protocols</span>
+                        <span>Network segmentation</span>
+                        <span>Networking</span>
+                        <span>Packet retransmission</span>
+                        <span>POX</span>
+                        <span>Recursive name resolution</span>
+                        <span>Routing</span>
+                        <span>Sliding-window protocols</span>
+                        <span>Socket programming</span>
+                        <span>Software-defined networking</span>
+                        <span>TCP/IP</span>
+                        <span>UDP</span>
+                        <span>VPN</span>
+                        <span>Wireshark</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Security and access</h3>
+                    <div class="skills-inline">
+                        <span>Access control lists</span>
+                        <span>Access management</span>
+                        <span>ACM</span>
+                        <span>Auth0</span>
+                        <span>Authentication</span>
+                        <span>AWS Identity and Access Management (AWS IAM)</span>
+                        <span>AWS security groups</span>
+                        <span>Cloud security controls</span>
+                        <span>Computer security</span>
+                        <span>Cryptography</span>
+                        <span>Datawiza Access Broker</span>
+                        <span>Firewall rules</span>
+                        <span>Ghidra</span>
+                        <span>Network security</span>
+                        <span>Okta</span>
+                        <span>Traffic filtering</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Reliability and observability</h3>
+                    <div class="skills-inline">
+                        <span>Alerting</span>
+                        <span>Amazon CloudWatch (AWS CloudWatch)</span>
+                        <span>Failure detection</span>
+                        <span>Fault injection</span>
+                        <span>Grafana</span>
+                        <span>Health checks</span>
+                        <span>Incident investigation</span>
+                        <span>Incident response</span>
+                        <span>Incident triage</span>
+                        <span>Log analysis</span>
+                        <span>Logging</span>
+                        <span>Metrics</span>
+                        <span>Monitoring</span>
+                        <span>NerdGraph API</span>
+                        <span>New Relic</span>
+                        <span>Observability</span>
+                        <span>OpenTelemetry</span>
+                        <span>Prometheus</span>
+                        <span>Reliability engineering</span>
+                        <span>Root cause analysis</span>
+                        <span>Runbook development (Operational runbooks)</span>
+                        <span>SLOs</span>
+                        <span>Telemetry</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Performance and debugging</h3>
+                    <div class="skills-inline">
+                        <span>blktrace</span>
+                        <span>Bottleneck detection</span>
+                        <span>Capacity analysis</span>
+                        <span>Debugging</span>
+                        <span>Diagnostics</span>
+                        <span>fio</span>
+                        <span>Flamegraphs</span>
+                        <span>GDB</span>
+                        <span>Infrastructure profiling</span>
+                        <span>LD_PRELOAD</span>
+                        <span>Linux /proc</span>
+                        <span>perf</span>
+                        <span>Performance analysis</span>
+                        <span>Performance benchmarking</span>
+                        <span>Performance debugging</span>
+                        <span>Print debugging</span>
+                        <span>Profiling</span>
+                        <span>Reproducible benchmarking</span>
+                        <span>Systems debugging</span>
+                        <span>Valgrind</span>
+                        <span>Web request trace analysis</span>
+                        <span>Workload characterization</span>
+                        <span>Workload trace analysis</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>AI and machine learning</h3>
+                    <div class="skills-inline">
+                        <span>Artificial intelligence</span>
+                        <span>PyTorch</span>
+                        <span>scikit-learn</span>
+                        <span>TensorFlow</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Research, simulation, and sustainability</h3>
+                    <div class="skills-inline">
+                        <span>Carbon analysis</span>
+                        <span>Configuration search</span>
+                        <span>Energy analysis</span>
+                        <span>Energy modeling</span>
+                        <span>Experimentation</span>
+                        <span>gem5</span>
+                        <span>Hardware configuration evaluation</span>
+                        <span>Life cycle assessment</span>
+                        <span>Parameter sweeps</span>
+                        <span>Reproducible workflows</span>
+                        <span>Research software engineering</span>
+                        <span>SimpleSSD</span>
+                        <span>Simulation (Simulation frameworks)</span>
+                        <span>Sustainable computing</span>
+                        <span>Total cost of ownership analysis</span>
+                        <span>Workload replay</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Collaboration and project delivery</h3>
+                    <div class="skills-inline">
+                        <span>Agile</span>
+                        <span>Cross-functional collaboration</span>
+                        <span>Jira</span>
+                        <span>Programming assignment development</span>
+                        <span>Project ownership (End-to-end project ownership)</span>
+                        <span>Requirements gathering</span>
+                        <span>Scrum</span>
+                        <span>Teaching and mentorship</span>
+                        <span>Technical documentation</span>
+                        <span>Technical leadership</span>
+                        <span>Technical training</span>
+                    </div>
+                </div>
+                <div class="section-item">
+                    <h3>Business systems and technical support</h3>
+                    <div class="skills-inline">
+                        <span>Bill-of-materials management</span>
+                        <span>Canvas LMS</span>
+                        <span>ConnectWise</span>
+                        <span>Inventory tracking</span>
+                        <span>Manufacturing workflow automation</span>
+                        <span>Material requirements planning</span>
+                        <span>Technical support</span>
+                        <span>Workstation provisioning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <strong>University of California, Santa Cruz</strong><br>
+                    <span class="degree">M.S. Computer Science</span> <span class="date">(Sept. 2022 – Dec. 2024)</span>
+                    <div class="coursework">
+                        <ul><li><strong>Coursework:</strong> A.I., Advanced Operating Systems, Database Systems, Distributed Systems, Archival Storage System Design, Cryptography, Computer Security, Computer Architecture, Algorithms, Programming Languages</li></ul>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <strong>University of California, Santa Cruz</strong><br>
+                    <span class="degree">B.S. Computer Science</span> <span class="date">(Sept. 2018 – June 2022)</span>
+                    <div class="coursework">
+                        <ul><li><strong>Coursework:</strong> A.I., Algorithms, Assembly Language, C Programming, Compiler Design, Computer Architecture, Computational Models, Computer Networks, Computer Security, Data Structures, Database Design, Distributed Systems, Embedded Operating Systems, Functional Programming, Network Programming, SQL, Web Applications</li></ul>
+                    </div>
+                    <div class="achievements">
+                        <ul><li><strong>Achievements:</strong> UCSC Dean’s List (Fall 2019, Winter 2020, Spring 2020)</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="section-list">
+                <div class="section-item" style="text-align:left;">
+                    <div style="margin-bottom: 0; margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+                        <span>📞 (408) 643-4372</span> |
+                        <span>📧 <a href="mailto:mitch.elliott@pacbell.net">mitch.elliott@pacbell.net</a></span> |
+                        <span>🔗 <a href="https://linkedin.com/in/mitchellelliott18" target="_blank">LinkedIn</a></span> |
+                        <span>🐙 <a href="https://github.com/melliott18" target="_blank">GitHub</a></span>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer"><p>© 2026 Mitchell Elliott</p></footer>
+        </section>
+    </main>
+  <script>
+    (() => {
+      const menu = document.querySelector('.section-menu');
+      const mobile = window.matchMedia('(max-width: 50em)');
+      const syncMenu = () => { menu.open = !mobile.matches; };
+      syncMenu();
+      mobile.addEventListener('change', syncMenu);
+      menu.dataset.enhanced = 'true';
+      menu.addEventListener('click', (event) => {
+        if (!mobile.matches || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const link = event.target.closest('a[href^="#"]');
+        const target = link && document.getElementById(link.hash.slice(1));
+        if (!target) return;
+        menu.open = false;
+        target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      });
+      menu.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobile.matches && menu.open) {
+          menu.open = false;
+          menu.querySelector('summary').focus();
+        }
+      });
+      const select = document.getElementById('theme');
+      select.value = document.documentElement.dataset.theme || 'system';
+      select.closest('.theme-control').hidden = false;
+      select.addEventListener('change', () => {
+        document.documentElement.dataset.theme = select.value;
+        try { localStorage.setItem('portfolioReviewTheme', select.value); } catch (_) {}
+      });
+    })();
+  </script>
+</body>
+</html>
