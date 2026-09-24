@@ -1,5 +1,7 @@
 # Expanded portfolio project source map
 
+> Historical review baseline. The September 23, 2026 [CV and master-resume refresh](content-refresh-2026-09-23.md) supersedes the content, download status, and evidence caveats below where noted. The broader skills inventory is retained at the user’s request.
+
 Local review content only. This fragment does not publish a site or change resume sources.
 
 ## Coverage and counts

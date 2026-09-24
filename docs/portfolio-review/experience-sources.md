@@ -1,5 +1,7 @@
 # Experience and teaching expansion: source and review notes
 
+> Historical review baseline. The September 23, 2026 [CV and master-resume refresh](content-refresh-2026-09-23.md) supersedes the content, download status, and evidence caveats below where noted. The broader skills inventory is retained at the user’s request.
+
 Prepared for the local portfolio review. No source resume, evidence flag, public website, or LinkedIn profile is changed. The current user request asks for fuller content using recent two-page bases and retention of every role. Embedded historical resume-review exceptions are source context only.
 
 ## Completeness and counts

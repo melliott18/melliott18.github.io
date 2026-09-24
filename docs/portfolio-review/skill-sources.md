@@ -1,5 +1,7 @@
 # Comprehensive portfolio skills: source and coverage notes
 
+> Historical review baseline. The September 23, 2026 [CV and master-resume refresh](content-refresh-2026-09-23.md) supersedes the content, download status, and evidence caveats below where noted. The broader skills inventory is retained at the user’s request.
+
 The fragment is a complete local-review inventory, not a proficiency ranking or a declaration that every historical mention is independently verified. The original website and resume sources remain unchanged.
 
 ## Coverage
@@ -68,6 +70,6 @@ The fragment is a complete local-review inventory, not a proficiency ranking or 
 
 ## Files
 
-- `proposed-layout.html#skills`: complete replacement Skills section using `.section-item`, `h3`, and `.skills-inline span`.
+- [Preview Skills section](../../review/proposed-layout.html#skills): complete replacement Skills section using `.section-item`, `h3`, and `.skills-inline span`.
 - `skill-coverage.json`: source-by-source mappings, alias information, catalog additions/exclusions, status caveats, group counts, and complete display-entry provenance.
 - `skill-sources.md`: these notes.
