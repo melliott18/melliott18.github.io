@@ -149,6 +149,7 @@ section h3 { margin: 0 0 var(--compact-gap); font-size: 1.333333rem; line-height
   .theme-control { width: 100%; padding: var(--layout-gap) 0 0; border-left: 0; border-top: var(--rule-width) solid var(--rule); }
 }
 @media (max-width: 23em) {
+  section h2 { font-size: 1.65rem; }
   .sidebar nav ul { grid-template-columns: minmax(0, 1fr); }
   .downloads { width: 100%; flex-direction: column; }
   .section-item, .education-item { padding: var(--compact-gap); }
