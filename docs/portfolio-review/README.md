@@ -66,8 +66,8 @@ Use plain entries and familiar links. Avoid giant slogans, stat counters, animat
 
 ### Proposed opening
 
-**Mitchell Elliott**  
-**Software Engineer**  
+**Mitchell Elliott**<br>
+**Software Engineer**<br>
 Cloud, platform & DevOps · Systems research · San Francisco Bay Area
 
 The About section retains four paragraphs covering the engineering focus, UCSC research, teaching, and industry work. Its opening now foregrounds cloud infrastructure, platform engineering, and DevOps while keeping systems and storage research visible. This describes the work without implying current employment in the role that ended in August.
@@ -125,7 +125,7 @@ The existing two PDFs resolve locally, but their hashes differ from the current 
 
 Direct browsing reached LinkedIn's sign-in wall. This is proposed replacement copy from the career records, not a complete audit of the current signed-in profile. No profile edits have been made.
 
-**Proposed headline:**  
+**Proposed headline:**<br>
 Software Engineer | Cloud, Platform & DevOps | Kubernetes, AWS, Terraform | CI/CD & Observability
 
 **Proposed About:**
