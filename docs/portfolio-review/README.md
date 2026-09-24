@@ -2,19 +2,19 @@
 
 > Historical review baseline. The September 23, 2026 [CV and master-resume refresh](content-refresh-2026-09-23.md) supersedes the content, download status, and evidence caveats below where noted. The broader skills inventory is retained at the user’s request.
 
-> Repository organization update: these notes live in `docs/portfolio-review/`. The current home page, its assets, and PDF downloads now live together in `site/`; the preview remains at `review/proposed-layout.html`, with separate CSS and JavaScript files. Page content and PDF contents are preserved, while their repository paths have changed. The observations, public URLs, branch names, and validation below describe the earlier review baseline unless dated otherwise. Future publishing should serve `site/` as the document root; deployment configuration and compatibility for previous public URLs are deferred. See the [repository guide](../../README.md) for the current file layout.
+> Repository organization update: these notes live in `docs/portfolio-review/`. The refreshed design is now the single root `index.html`, with assets in `assets/` and the current resume/CV PDFs at their original root filenames. The former `site/` and `review/` layouts remain in Git history. The observations, paths, public URLs, branch names, and validation below describe the earlier review baseline unless dated otherwise. The root layout uses the existing GitHub Pages `main` / repository-root source without configuring a custom GitHub Actions workflow. See the [repository guide](../../README.md) for the current file layout and publishing workflow.
 
 Prepared September 17, 2026. Review baseline: website commit `234906d`; resume evidence repository commit `64c8e28`. Work is local on `feature/portfolio-review`. The existing website, PDF downloads, resume repository, and public LinkedIn profile have not been edited.
 
 **Revised direction:** preserve the original navy/gold palette, full content, and use of the available screen width. The first concept changed the palette and condensed the material too aggressively. The revised concept keeps the desktop sidebar, improves mobile navigation and readability, and expands the descriptions from the recent two-page base resumes without removing existing sections or history. Lead with **cloud, platform, and DevOps**, as confirmed in this review, with systems and storage research providing technical depth.
 
-Open the [proposed layout](../../review/proposed-layout.html) beside the [current site](../../site/index.html). From the repository root, run:
+To preview the [current home page](../../index.html), run from the repository root:
 
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Then visit [the local concept](http://127.0.0.1:4173/review/proposed-layout.html) or [the local current site](http://127.0.0.1:4173/site/). The concept is a local review artifact, not a replacement home page. The resume and CV files now live in `site/downloads/` and remain pending refresh. Optional case studies can add depth later without replacing the full portfolio content.
+Then visit [the local home page](http://127.0.0.1:4173/). The current resume and CV files are `Mitchell_Elliott_Resume.pdf` and `Mitchell_Elliott_CV.pdf` at the repository root. References below to pending PDF refreshes or a separate local concept describe the historical review, not the current files. Optional case studies can add depth later without replacing the full portfolio content.
 
 ## What works today
 
@@ -38,7 +38,7 @@ Then visit [the local concept](http://127.0.0.1:4173/review/proposed-layout.html
 | Medium | No main landmark or skip link; project and experience titles are bold text rather than headings. Theme controls use emoji without purpose/state labels or Escape dismissal. | Use semantic headings and navigation, a skip link, visible focus, and an accessible labeled theme control. |
 | Lower | The portrait is 2000 × 2000 and about 891KB, rendered at 130px. Metadata is minimal; footer says 2025. | Prepare an appropriately sized portrait, a useful page description/social preview, and the current footer year. |
 
-Current source locations: [site styles](../../site/assets/css/site.css) contain layout, borders, sidebar, card text, and mobile rules; [index.html](../../site/index.html) contains the theme controls and the About, Education, Experience, Teaching, Projects, Skills, and Contact sections; [theme behavior](../../site/assets/js/theme.js) contains the theme dropdown and persistence logic. The original single-file baseline is retained in Git at commit `234906d`.
+Current source locations: [site styles](../../assets/css/site.css) contain layout, borders, sidebar, card text, and mobile rules; [index.html](../../index.html) contains the page content and controls; [site behavior](../../assets/js/site.js) contains navigation, alignment, and theme behavior, with early theme restoration in [theme-init.js](../../assets/js/theme-init.js). The original single-file baseline is retained in Git at commit `234906d`.
 
 ## Revised layout and content scope
 

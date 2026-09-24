@@ -1,6 +1,8 @@
 # CV and master-resume website refresh — September 23, 2026
 
-This is the current content record for `site/index.html` and `review/proposed-layout.html`. Earlier review documents are retained as historical context.
+This records the content refresh originally applied to `site/index.html` and `review/proposed-layout.html`. Earlier review documents are retained as historical context.
+
+The subsequent repository reorganization promoted the refreshed review design to root `index.html`, moved its assets into `assets/`, and moved the unchanged current PDFs to their original root filenames. Paths and validation below record the content-refresh layout; artifact hashes in the source manifest remain unchanged. See the [repository guide](../../README.md) for current paths and preview instructions.
 
 ## Workspace and sources
 
@@ -43,4 +45,4 @@ Download URLs remain relative to the existing site layout, with accessible PDF/p
 - Checked existing GitHub destinations: seven returned HTTP 200. The old CogniStore URL returned HTTP 404, so its dead link was removed from the home page while preserving the project description.
 - Browser validation recorded no page errors or failed local resource requests. `git diff --check` passed.
 
-The repository reorganization’s publishing configuration and old root URL compatibility remain outside this content refresh. Serve `site/` as the public document root when integrating that reorganization.
+The subsequent root layout preserves the original home-page and PDF URLs and uses the existing GitHub Pages source, `main` at the repository root. No custom GitHub Actions workflow or settings change is needed. Merging the prepared files into remote `main` triggers publication.
