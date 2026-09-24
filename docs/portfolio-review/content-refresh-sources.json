@@ -1,0 +1,84 @@
+{
+  "review_date": "2026-09-23",
+  "source_repository": "/Users/mitchell/Projects/resume",
+  "source_revision": "5aee65474770865ddc005d0bdafe63d8be14312e",
+  "note": "Snapshot of the current CV and master sources and existing rendered artifacts; no resume source or PDF was regenerated. The resume checkout has unrelated uncommitted changes.",
+  "sources": [
+    {
+      "path": "resumes/general/cv/cv.tex",
+      "sha256": "e8bb6672e600e8b9bd1297c7ea690cb88a574a73fb7f38568d6a69991f696903"
+    },
+    {
+      "path": "resumes/general/cv/sections/body.tex",
+      "sha256": "fc202657f815a0b0d917c84830cbc5d0d3276efd2efebdf45d9a04a2870b47ac"
+    },
+    {
+      "path": "resumes/general/cv/sections/education.tex",
+      "sha256": "8e044c28362ca79340d2348fb2b28ed50872eb32b38a5d911e789cb31acfdaf0"
+    },
+    {
+      "path": "resumes/general/cv/sections/layout.tex",
+      "sha256": "af5d03acf6db195ccd5234dce5c745517ffe56370481e57de59977f30c650e3d"
+    },
+    {
+      "path": "resumes/general/cv/sections/presentations.tex",
+      "sha256": "661fe1f7f3ef294822d8e6d15d8570334419b76e28a5d19d2c505480bbbf82be"
+    },
+    {
+      "path": "resumes/general/cv/sections/projects.tex",
+      "sha256": "e81d3d853462c28a8f8c7178aabd855483a293cffb5dcbf4f2834be3dd445e98"
+    },
+    {
+      "path": "resumes/general/cv/sections/skills.tex",
+      "sha256": "bbbecf5caf99b8dfdff799cef8fd3fdc21d399421769ee99630baf045ca76bdd"
+    },
+    {
+      "path": "resumes/general/cv/sections/teaching-experience.tex",
+      "sha256": "566026bd98b0b10343d713af10f274f16fb7a0abd5b5a8d3bffd2c6b15d14236"
+    },
+    {
+      "path": "resumes/general/cv/sections/work-experience.tex",
+      "sha256": "8b8f28170e73a95e60e0fad247cc560adb4269df525fa4e8b0302d76c1b22b68"
+    },
+    {
+      "path": "resumes/general/cv/cv.pdf",
+      "sha256": "b7fcfadc18088650a10bd670b45e9b322a8a2558564be45eb68e16ab204b51dc"
+    },
+    {
+      "path": "resumes/general/master/master-two-page.tex",
+      "sha256": "b377c7ca7aaa5ac0b3fb510a16c879f003497e86dbe47c9fd47bcbcf45ae4343"
+    },
+    {
+      "path": "resumes/general/master/master-two-page.pdf",
+      "sha256": "e68af37eee7c792559fef31b579468d286ca50e2b796f2b2c0704e7cc484d6af"
+    },
+    {
+      "path": "content/sections/summary/master-expanded.tex",
+      "sha256": "957bd5366e493ea16aca64e6b04734837831a89aa2d232ade13d07accbe1d8cc"
+    },
+    {
+      "path": "content/sections/experience/master-expanded.tex",
+      "sha256": "48b0da12ca556525cb297b9482f1afbb6e27c307faa67a1d4519feb249688d0b"
+    },
+    {
+      "path": "content/sections/projects/master-expanded.tex",
+      "sha256": "4334501b78876993eaa6b3d5f1fdb1bd104795ada1af0cc9af88ba2ecdae63dc"
+    },
+    {
+      "path": "content/sections/skills/master.tex",
+      "sha256": "937494d8bfb55423759ad3f82b9f2f929dd33d454cafa39cd10aa60a28753a5f"
+    }
+  ],
+  "downloads": [
+    {
+      "source": "resumes/general/master/master-two-page.pdf",
+      "destination": "site/downloads/Mitchell_Elliott_Resume.pdf",
+      "pages": 2
+    },
+    {
+      "source": "resumes/general/cv/cv.pdf",
+      "destination": "site/downloads/Mitchell_Elliott_CV.pdf",
+      "pages": 6
+    }
+  ]
+}
